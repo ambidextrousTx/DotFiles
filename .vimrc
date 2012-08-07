@@ -1,7 +1,10 @@
 " General
-" Ambidextrous
 syntax on
-colorscheme django
+if has("gui_running")
+    colorscheme django
+else
+    colorscheme default
+endif
 set nocompatible 	" No compatibility with legacy vi
 set encoding=utf-8
 set showcmd
@@ -9,16 +12,31 @@ set number
 set go-=T
 set hlsearch
 set paste
+set incsearch
+set linebreak " Don't break words on line warp
+set spell " Turn on automatic spell check 
+set foldmethod=manual " Manually fold using zfa} when wanted
+set wildmode=longest,list " Shell-style autocomplete
+
+" Split to the bottom and right by default
+set splitbelow
+set splitright
+
+" Remaps
+" Don't need man page brought up
+nnoremap K <nop> 
 
 " For Python
 " No tabs in the source file
 " All tabs are 4 space characters
 set tabstop=4 
 set shiftwidth=4
+set softtabstop=4
 set expandtab		" Use spaces, not tabs
 
+" GUI font, labels on tabs
 set guifont=Monaco:h13
-set foldmethod=indent
+set guitablabel=%N\ %t
 set t_Co=256
 
 "Filetype detection and behavior adjustment
