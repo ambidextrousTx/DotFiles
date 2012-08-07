@@ -14,7 +14,7 @@ set hlsearch
 set paste
 set incsearch
 set linebreak " Don't break words on line warp
-set spell " Turn on automatic spell check 
+"set spell " Turn on automatic spell check 
 set foldmethod=manual " Manually fold using zfa} when wanted
 set wildmode=longest,list " Shell-style autocomplete
 
