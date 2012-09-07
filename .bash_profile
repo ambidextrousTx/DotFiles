@@ -3,6 +3,9 @@ alias ls='ls -aG'
 alias lit='ssh ravi@lit09.csci.unt.edu'
 alias python='python2.7'
 alias clj='/Users/ambidextrous/Coding/Clojure/clj'
+alias ec='/usr/local/bin/ctags'
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
 
 # Ambidextrous - added for specialized prompt
 export PS1='\[\e[33m\][Host \h] \[\e[0;41m\][Jobs \j] \[\e[0;42m\][CWD \w]\[\e[0m\]\n\[\033[1;32m\]\u\[\033[1;36m\] @\[\033[1;31m\]Zion \[\033[0m\]$ '
