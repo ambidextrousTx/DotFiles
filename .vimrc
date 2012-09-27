@@ -1,7 +1,7 @@
 " General
 syntax on
 if has("gui_running")
-    colorscheme django
+    colorscheme summerfruit256
 else
     colorscheme default
 endif
@@ -14,7 +14,7 @@ set hlsearch
 set paste
 set incsearch
 set linebreak " Don't break words on line warp
-"set spell " Turn on automatic spell check 
+set spell " Turn on automatic spell check 
 set foldmethod=manual " Manually fold using zfa} when wanted
 set wildmode=longest,list " Shell-style autocomplete
 
@@ -26,6 +26,11 @@ set splitright
 " Don't need man page brought up
 nnoremap K <nop> 
 
+" Using spelling suggestions a bit easily
+" Needs spell set
+" Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
+set complete-=k complete+=k
+
 " For Python
 " No tabs in the source file
 " All tabs are 4 space characters
@@ -35,7 +40,7 @@ set softtabstop=4
 set expandtab		" Use spaces, not tabs
 
 " GUI font, labels on tabs
-set guifont=Monaco:h13
+set guifont=Source\ Code\ Pro:h13
 set guitablabel=%N\ %t
 set t_Co=256
 
