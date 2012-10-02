@@ -31,6 +31,18 @@ nnoremap K <nop>
 " Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
 set complete-=k complete+=k
 
+" Via Drew Neil at Vimcasts.org
+" Ctrl Shift P to see the highlight group for word
+" Help in creating Vim colorscheme files
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " For Python
 " No tabs in the source file
 " All tabs are 4 space characters
