@@ -2,6 +2,7 @@
 syntax on
 if has("gui_running")
     colorscheme summerfruit256
+    set spell
 else
     colorscheme default
 endif
@@ -14,7 +15,8 @@ set hlsearch
 set paste
 set incsearch
 set linebreak " Don't break words on line warp
-set spell " Turn on automatic spell check 
+" Setting spelling only when the GUI is running
+"set spell " Turn on automatic spell check 
 set foldmethod=manual " Manually fold using zfa} when wanted
 set wildmode=longest,list " Shell-style autocomplete
 
@@ -56,11 +58,19 @@ set guifont=Source\ Code\ Pro:h13
 set guitablabel=%N\ %t
 set t_Co=256
 
-"Filetype detection and behavior adjustment
+" Filetype detection and behavior adjustment
 if has("autocmd")
     filetype on
     filetype plugin on
+    " Added specially for Scala
+    filetype indent on
+    set autoindent
+    set si
 endif
+
+" Ambidextrous
+" Some more specific settings for Python
+au FileType py set textwidth=79 "PEP-8
 
 "Set ctags to the newer version installed from SourceForge
 "The newer version is exuberant ctags

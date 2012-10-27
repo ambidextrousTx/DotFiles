@@ -7,10 +7,19 @@ alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 
+# Ambidextrous - git aliases
+alias ga='git add'
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias gl='git log'
+
 # Ambidextrous - added for specialized prompt
 export PS1='\[\e[33m\][Host \h] \[\e[0;41m\][Jobs \j] \[\e[0;42m\][CWD \w]\[\e[0m\]\n\[\033[1;32m\]\u\[\033[1;36m\] @\[\033[1;31m\]Zion \[\033[0m\]$ '
 #export PS1='\u @ Zion $ '
 
+# Ambidextrous - giving Homebrew priority over Apple
+export PATH=/usr/local/bin:$PATH
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
