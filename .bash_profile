@@ -7,12 +7,20 @@ alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 
+# For enabling interactive plotting
+alias ipython='ipython --pylab'
+
 # Ambidextrous - git aliases
 alias ga='git add'
 alias gs='git status'
 alias gd='git diff'
 alias gc='git commit'
 alias gl='git log'
+
+# Ambidextrous - tmux aliases
+alias ta='tmux attach'
+alias tl='tmux ls'
+alias tn='tmux new -s'
 
 # Ambidextrous - added for specialized prompt
 export PS1='\[\e[33m\][Host \h] \[\e[0;41m\][Jobs \j] \[\e[0;42m\][CWD \w]\[\e[0m\]\n\[\033[1;32m\]\u\[\033[1;36m\] @\[\033[1;31m\]Zion \[\033[0m\]$ '

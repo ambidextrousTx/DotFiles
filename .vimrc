@@ -24,6 +24,9 @@ set wildmode=longest,list " Shell-style autocomplete
 set splitbelow
 set splitright
 
+" Leader key
+let mapleader = ","
+
 " Remaps
 " Don't need man page brought up
 nnoremap K <nop> 
