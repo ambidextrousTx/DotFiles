@@ -10,6 +10,10 @@ alias egrep='egrep --color=always'
 # For enabling interactive plotting
 alias ipython='ipython --pylab'
 
+# Ambidextrous - grc - for colorizing terminal output
+# /usr/local/etc/grc.conf has the regexes and their colors defined
+alias grc='grc -es --colour=on'
+
 # Ambidextrous - git aliases
 alias ga='git add'
 alias gs='git status'
@@ -28,6 +32,9 @@ export PS1='\[\e[33m\][Host \h] \[\e[0;41m\][Jobs \j] \[\e[0;42m\][CWD \w]\[\e[0
 
 # Ambidextrous - giving Homebrew priority over Apple
 export PATH=/usr/local/bin:$PATH
+
+# Ambidextrous - adding own scripts to the path
+export PATH=~/Coding/Scripts:$PATH
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
