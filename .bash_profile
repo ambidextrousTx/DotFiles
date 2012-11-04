@@ -27,7 +27,7 @@ alias tl='tmux ls'
 alias tn='tmux new -s'
 
 # Ambidextrous - added for specialized prompt
-export PS1='\[\e[33m\][Host \h] \[\e[0;41m\][Jobs \j] \[\e[0;42m\][CWD \w]\[\e[0m\]\n\[\033[1;32m\]\u\[\033[1;36m\] @\[\033[1;31m\]Zion \[\033[0m\]$ '
+export PS1='\[\e[0;35m\][Host \h] \[\e[0;31m\][Jobs \j] \[\e[0;36m\][CWD \w]\[\e[0m\]\n\[\033[1;32m\]\u\[\033[1;36m\] @\[\033[1;31m\]Zion \[\033[0m\]$ '
 #export PS1='\u @ Zion $ '
 
 # Ambidextrous - giving Homebrew priority over Apple
