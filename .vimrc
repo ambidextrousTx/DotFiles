@@ -1,3 +1,34 @@
+" Ambidextrous
+" $MYVIMRC
+" Evolving over time
+" Recent advancements: Steve Losh's Learn Vimscript the Hard Way
+" ---------------------------------------- 
+
+" Greeting at startup
+echo ">^.^<"
+
+" Leader key
+let mapleader = ","
+
+" Line numbers
+set number          
+set numberwidth=5   " Number of columns for the line numbers
+
+" Start relative number
+nmap <leader>, :call SetRelativeNumber()<CR>
+nmap <leader>. :call SetNumber()<CR>
+
+function! SetNumber()
+    set number!
+endfunction
+
+function! SetRelativeNumber()
+    set relativenumber!
+endfunction
+
+" Indentation
+set shiftround      " Round the indent to a multiple of shiftwidth
+
 " General
 syntax on
 if has("gui_running")
@@ -6,10 +37,12 @@ if has("gui_running")
 else
     colorscheme default
 endif
+
 set nocompatible 	" No compatibility with legacy vi
 set encoding=utf-8
 set showcmd
-set number
+
+
 set go-=T
 set hlsearch
 set paste
@@ -24,8 +57,6 @@ set wildmode=longest,list " Shell-style autocomplete
 set splitbelow
 set splitright
 
-" Leader key
-let mapleader = ","
 
 " Remaps
 " Don't need man page brought up
@@ -57,7 +88,7 @@ set softtabstop=4
 set expandtab		" Use spaces, not tabs
 
 " GUI font, labels on tabs
-set guifont=Source\ Code\ Pro:h13
+set guifont=Droid\ Sans\ Mono:h12
 set guitablabel=%N\ %t
 set t_Co=256
 
