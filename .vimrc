@@ -2,6 +2,10 @@
 " $MYVIMRC
 " Evolving over time
 " Recent advancements: Steve Losh's Learn Vimscript the Hard Way
+
+" Tips
+" nore = non recursive mappings are better because they never take other mappings into account
+" and thus never get into recursive mode. ALWAYS use non recursive mappings
 " ---------------------------------------- 
 
 " Greeting at startup
@@ -12,22 +16,28 @@ let mapleader = ","
 
 " Line numbers
 set number          
-set numberwidth=5   " Number of columns for the line numbers
+set numberwidth=4                               " Number of columns for the line numbers
 
 " Start relative number
-nmap <leader>, :call SetRelativeNumber()<CR>
-nmap <leader>. :call SetNumber()<CR>
+nnoremap <leader>, :call SetRelativeNumber()<CR>
+nnoremap <leader>. :call SetNumber()<CR>
 
 function! SetNumber()
-    set number!
+    set number!                                 " Toggle between number and nonumber
 endfunction
 
 function! SetRelativeNumber()
-    set relativenumber!
+    set relativenumber!                         " Toggle
 endfunction
 
+" Make it easier to make it easier to edit text
+" Edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " Indentation
-set shiftround      " Round the indent to a multiple of shiftwidth
+set shiftround                                  " Round the indent to a multiple of shiftwidth
 
 " General
 syntax on
@@ -41,7 +51,6 @@ endif
 set nocompatible 	" No compatibility with legacy vi
 set encoding=utf-8
 set showcmd
-
 
 set go-=T
 set hlsearch
@@ -71,7 +80,7 @@ set complete-=k complete+=k
 " Ctrl Shift P to see the highlight group for word
 " Help in creating Vim colorscheme files
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nnoremap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -133,16 +142,16 @@ function! CapitalizeCenterAndMoveDown()
 endfunction
 
 " Mappings
-nmap <silent> ;s :call ToggleSyntax()<CR>
-nmap <Space> <PageDown>
-nmap <Tab> <PageUp>
-nmap <silent> ;c :call CapitalizeCenterAndMoveDown()<CR>
+nnoremap <silent> ;s :call ToggleSyntax()<CR>
+nnoremap <Space> <PageDown>
+nnoremap <Tab> <PageUp>
+nnoremap <silent> ;c :call CapitalizeCenterAndMoveDown()<CR>
 " Insert current date
-imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
+inoremap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
 " Insert current time
-imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
+inoremap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
 " Simple calculator
-imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
+inoremap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
 " Vim Scripts from the official Vim page
 " Beautify the status bar
