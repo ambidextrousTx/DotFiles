@@ -12,6 +12,15 @@
 " Cute, but not needed
 " echo ">^.^<"
 
+" UTF-8 all the things
+set encoding=utf-8
+
+" Autmatically change dirs upon opening
+" Only needed/ works for GUI
+if has("gui_running")
+    set autochdir
+endif
+
 " Leader key
 let mapleader = ","
 
@@ -50,12 +59,23 @@ vnoremap <leader>/ :norm I// <CR>
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
 
+" Autocmds
+" Event, Pattern, Command
+autocmd FileType python set textwidth=79 "PEP-8, set 80 character limit on lines
+autocmd BufNewFile,BufRead *.html setlocal nowrap "Do not wrap HTML documents (local buffer only)
+"Automatically indent HTML before saving
+autocmd BufWritePre *.html normal gg=G 
+
 " --- not working yet / still creating ---
+"
+" From Derek Wyatt's videos, for end of current word changing
+" Not always working
+set cpoptions+=$
+"
 " Common abbreviations
 iabbrev teh the
 iabbrev @@ RaviSinha@my.unt.edu
 " Add more as and when needed
-"
 
 " Highlighting different words using different colors
 " Leader with 1-6
@@ -129,7 +149,6 @@ else
 endif
 
 set nocompatible 	" No compatibility with legacy vi
-set encoding=utf-8
 set showcmd
 
 set go-=T
@@ -176,7 +195,7 @@ set softtabstop=4
 set expandtab		" Use spaces, not tabs
 
 " GUI font, labels on tabs
-set guifont=Droid\ Sans\ Mono:h12
+set guifont=Source\ Code\ Pro:h13
 set guitablabel=%N\ %t
 set t_Co=256
 
@@ -190,9 +209,6 @@ if has("autocmd")
     set si
 endif
 
-" Ambidextrous
-" Some more specific settings for Python
-au FileType py set textwidth=79 "PEP-8
 
 "Set ctags to the newer version installed from SourceForge
 "The newer version is exuberant ctags
