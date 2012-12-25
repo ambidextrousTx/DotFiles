@@ -60,11 +60,23 @@ vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
 
 " Autocmds
+" Sourcing your $MYVIMRC makes Vim read your autocmds again, and it has no way
+" of knowing whether it's a duplicate. That makes Vim run slower because it 
+" executes the same commands over and over
 " Event, Pattern, Command
-autocmd FileType python set textwidth=79 "PEP-8, set 80 character limit on lines
-autocmd BufNewFile,BufRead *.html setlocal nowrap "Do not wrap HTML documents (local buffer only)
-"Automatically indent HTML before saving
-autocmd BufWritePre *.html normal gg=G 
+augroup filetype_python
+    autocmd!
+    autocmd FileType python set textwidth=79 "PEP-8, set 80 character limit on lines
+    " From some plugin to autocomplete Python commands (need to check later)
+    autocmd FileType python set omnifunc=pythoncomplete#Complete
+augroup END
+
+augroup filetype_html
+    autocmd!
+    autocmd BufNewFile,BufRead *.html setlocal nowrap "Do not wrap HTML documents (local buffer only)
+    "Automatically indent HTML before saving
+    autocmd BufWritePre *.html normal gg=G 
+augroup END
 
 " --- not working yet / still creating ---
 "
@@ -349,6 +361,3 @@ endfunction
 function! s:Column()
     return col('.') > 1 ? strchars(getline(line('.'))[:col('.') - 2]) : 0
 endfunction
-
-" Autocmds
-autocmd FileType python set omnifunc=pythoncomplete#Complete
