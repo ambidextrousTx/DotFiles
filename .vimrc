@@ -46,6 +46,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" Since :w mostly becomes :W when done manually
+nnoremap <leader>w :w<CR>
+
 " More interesting mappings
 " Surrounding the word with single and double quotes
 nnoremap <leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
