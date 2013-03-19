@@ -12,13 +12,14 @@ ZSH_THEME="ambidextrous"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Ambidextrous - useful aliases
-alias ls='ls -aG'
+alias ls='ls -a'
 alias lit='ssh ravi@lit09.csci.unt.edu'
 alias python='python2.7'
 alias clj='/Users/ambidextrous/Coding/Clojure/clj'
 alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
+alias sml='/usr/local/sml'
 
 # For enabling interactive plotting
 alias ipython='ipython --pylab'
@@ -49,7 +50,7 @@ alias tn='tmux new -s'
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -63,4 +64,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 # Ambidextrous: this seems to already have been taken from my previous bash profile
-export PATH=/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin
+# Ambidextrous: putting Macports Python version at the beginning so that pyrg works
+export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin
