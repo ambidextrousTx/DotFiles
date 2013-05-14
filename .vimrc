@@ -12,6 +12,10 @@
 " Cute, but not needed
 " echo ">^.^<"
 
+" Adding tpope's Pathogen for easy plugin management
+execute pathogen#infect()
+filetype plugin indent on 
+
 " UTF-8 all the things
 set encoding=utf-8
 
@@ -31,6 +35,9 @@ set numberwidth=4                               " Number of columns for the line
 " Start relative number or normal number
 nnoremap <leader>, :call SetRelativeNumber()<CR>
 nnoremap <leader>. :call SetNumber()<CR>
+
+" A shortcut to CtrlPMixed
+nnoremap ; :CtrlPMixed<CR>
 
 function! SetNumber()
     set number!                                 " Toggle between number and nonumber
@@ -80,6 +87,10 @@ augroup filetype_html
     "Automatically indent HTML before saving
     autocmd BufWritePre *.html normal gg=G 
 augroup END
+
+" Creating Terminal-like mappings
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " --- not working yet / still creating ---
 "
@@ -234,7 +245,6 @@ map <F4> :TlistToggle<CR>
 map <F5> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "For Michael Sanders' TextMate Snippet Emulator plugin
-filetype plugin on 
 
 " Functions
 function! ToggleSyntax()
