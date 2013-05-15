@@ -30,23 +30,29 @@ let mapleader = ","
 
 " Line numbers
 set number          
-set numberwidth=4                               " Number of columns for the line numbers
+" Number of columns for the line numbers
+set numberwidth=4                               
 
 " Start relative number or normal number
-nnoremap <leader>, :call SetRelativeNumber()<CR>
-nnoremap <leader>. :call SetNumber()<CR>
+nnoremap <leader>sr :call SetRelativeNumber()<CR>
+nnoremap <leader>sn :call SetNumber()<CR>
 
-" A shortcut to CtrlPMixed
-nnoremap ; :CtrlPMixed<CR>
-
+" Functions to toggle between number and nonumber
 function! SetNumber()
-    set number!                                 " Toggle between number and nonumber
+    set number!                                 
 endfunction
 
 function! SetRelativeNumber()
-    set relativenumber!                         " Toggle
+    set relativenumber!                         
 endfunction
-" 
+
+" A shortcut to CtrlPMixed
+nnoremap <leader>p :CtrlPMixed<CR>
+
+" Moving lines up and down
+nnoremap _ ddkP
+nnoremap - ddp
+
 " Make it easier to make it easier to edit text
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
