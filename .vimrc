@@ -28,6 +28,16 @@ endif
 " Leader key
 let mapleader = ","
 
+" Basics
+set nocompatible 	" No compatibility with legacy vi
+set showcmd
+set hlsearch
+set incsearch
+set linebreak " Don't break words on line warp
+" Split to the bottom and right by default
+set splitbelow
+set splitright
+
 " Line numbers
 set number          
 " Number of columns for the line numbers
@@ -75,6 +85,15 @@ vnoremap <leader>/ :norm I// <CR>
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
 
+" Common abbreviations
+iabbrev teh the
+iabbrev @@ RaviSinha@my.unt.edu
+iabbrev and and
+iabbrev thign thing
+iabbrev waht what
+iabbrev tehn then
+" Add more as and when needed
+
 " Autocmds
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, and it has no way
 " of knowing whether it's a duplicate. That makes Vim run slower because it 
@@ -94,20 +113,17 @@ augroup filetype_html
     autocmd BufWritePre *.html normal gg=G 
 augroup END
 
+" --- not working yet / still creating ---
+
 " Creating Terminal-like mappings
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" --- not working yet / still creating ---
 "
 " From Derek Wyatt's videos, for end of current word changing
 " Not always working
 set cpoptions+=$
 "
-" Common abbreviations
-iabbrev teh the
-iabbrev @@ RaviSinha@my.unt.edu
-" Add more as and when needed
 
 " Highlighting different words using different colors
 " Leader with 1-6
@@ -180,22 +196,14 @@ else
     colorscheme default
 endif
 
-set nocompatible 	" No compatibility with legacy vi
-set showcmd
-
 set go-=T
-set hlsearch
-set incsearch
-set paste
-set linebreak " Don't break words on line warp
+" Disabling paste - having paste set doesn't let abbreviations work
+" set paste
+
 " Setting spelling only when the GUI is running
 "set spell " Turn on automatic spell check 
 set foldmethod=manual " Manually fold using zfa} when wanted
 set wildmode=longest,list " Shell-style autocomplete
-
-" Split to the bottom and right by default
-set splitbelow
-set splitright
 
 " Remaps
 " Don't need man page brought up
@@ -240,7 +248,6 @@ if has("autocmd")
     set autoindent
     set si
 endif
-
 
 "Set ctags to the newer version installed from SourceForge
 "The newer version is exuberant ctags
