@@ -77,13 +77,25 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
 nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 
-" Commenting
+" Commenting - preferable for blocks
 vnoremap <leader># :norm I# <CR>
 vnoremap <leader>/ :norm I// <CR>
 
-" Uncommenting
+" Better commenting
+autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
+autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
+
+" Uncommenting - preferable for blocks
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
+
+" Better uncommenting 
+autocmd filetype python nnoremap <buffer> <leader>u ^2x
+autocmd filetype java nnoremap <buffer> <leader>u ^3x
+autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
+autocmd filetype c nnoremap <buffer> <leader>u ^3x
 
 " Indenting
 " Indent the file from top to bottom
