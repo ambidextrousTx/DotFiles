@@ -85,6 +85,11 @@ vnoremap <leader>/ :norm I// <CR>
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
 
+" Indenting
+" Indent the file from top to bottom
+" and leave the cursor at that point
+nnoremap <leader>i :norm gg=G<CR>`.
+
 " Common abbreviations
 iabbrev teh the
 iabbrev @@ RaviSinha@my.unt.edu
@@ -94,23 +99,30 @@ iabbrev waht what
 iabbrev tehn then
 " Add more as and when needed
 
+" Disabling paste - having paste set doesn't let abbreviations work
+" set paste
+" Set nopaste explicitly - sometimes it is necessary
+set nopaste
+
 " Autocmds
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, and it has no way
 " of knowing whether it's a duplicate. That makes Vim run slower because it 
 " executes the same commands over and over
 " Event, Pattern, Command
-augroup filetype_python
-    autocmd!
-    autocmd FileType python set textwidth=79 "PEP-8, set 80 character limit on lines
-    " From some plugin to autocomplete Python commands (need to check later)
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
-augroup END
 
 augroup filetype_html
     autocmd!
     autocmd BufNewFile,BufRead *.html setlocal nowrap "Do not wrap HTML documents (local buffer only)
     "Automatically indent HTML before saving
-    autocmd BufWritePre *.html normal gg=G 
+    "Don't like intendation overhead (time) at every save
+    "autocmd BufWritePre *.html normal gg=G 
+augroup END
+
+augroup filetype_python
+    autocmd!
+    autocmd FileType python set textwidth=79 "PEP-8, set 80 character limit on lines
+    " From some plugin to autocomplete Python commands (need to check later)
+    autocmd FileType python set omnifunc=pythoncomplete#Complete
 augroup END
 
 " --- not working yet / still creating ---
@@ -121,7 +133,7 @@ cnoremap <C-e> <End>
 
 "
 " From Derek Wyatt's videos, for end of current word changing
-" Not always working
+" Not working
 set cpoptions+=$
 "
 
@@ -197,8 +209,6 @@ else
 endif
 
 set go-=T
-" Disabling paste - having paste set doesn't let abbreviations work
-" set paste
 
 " Setting spelling only when the GUI is running
 "set spell " Turn on automatic spell check 
@@ -220,10 +230,10 @@ set complete-=k complete+=k
 " Show syntax highlighting groups for word under cursor
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 " For Python
@@ -261,17 +271,17 @@ map <F5> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Functions
 function! ToggleSyntax()
-	if exists("g:syntax_on")
-		syntax off
-	else
-		syntax enable
-	endif
+    if exists("g:syntax_on")
+        syntax off
+    else
+        syntax enable
+    endif
 endfunction
 
 function! CapitalizeCenterAndMoveDown()
-	s/\<./\u&/g "Built-in substitution capitalizes every word
-	center	"Built-in center command centers entire line
-	+1	"Built-in relative motion (+1 line down)
+    s/\<./\u&/g "Built-in substitution capitalizes every word
+    center	"Built-in center command centers entire line
+    +1	"Built-in relative motion (+1 line down)
 endfunction
 
 " Mappings
@@ -283,7 +293,7 @@ nnoremap <silent> ;c :call CapitalizeCenterAndMoveDown()<CR>
 inoremap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
 " Insert current time
 inoremap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
-" Simple calculator
+" Simple calculator - sometimes works, and sometimes does not
 inoremap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
 " Vim Scripts from the official Vim page
@@ -309,18 +319,18 @@ hi User5 guifg=#002600  guibg=#67ab6e gui=italic
 " Automatically and intelligently complete brackets, quotes etc
 " You can modify this dictionary as you wish.
 let s:match = {'(': ')',
-              \'{': '}',
-              \'[': ']',
-              \'¡': '!',
-              \'¿': '?'}
+            \'{': '}',
+            \'[': ']',
+            \'¡': '!',
+            \'¿': '?'}
 " This list is for pairs in which the closing symbol is the same as the
 " opening one.
 let s:smatch = ["'", "\""]
 
 let s:alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-              \"n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-              \"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-              \"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+            \"n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+            \"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+            \"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 for [s:o, s:c] in items(s:match)
     execute 'ino <silent> ' . s:o . " <C-R>=VracketOpen('" . s:o . "')<CR>"
     execute 'ino <silent> ' . s:c . " <C-R>=VracketClose('" . s:o . "')<CR>"
@@ -363,7 +373,7 @@ function! VracketBackspace()
     if col('.') == 1
         return "\<BS>"
     endif
-    
+
     if get(s:match, s:GetCharAt(-1), '  ') == s:GetCharAt(0)
         return "\<Esc>\"_2s"
     endif
