@@ -86,6 +86,9 @@ autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
 autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
+" Add more filetypes as needed  
 
 " Uncommenting - preferable for blocks
 vnoremap <leader>n# :norm ^2x<CR>
@@ -96,6 +99,8 @@ autocmd filetype python nnoremap <buffer> <leader>u ^2x
 autocmd filetype java nnoremap <buffer> <leader>u ^3x
 autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
 autocmd filetype c nnoremap <buffer> <leader>u ^3x
+autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
+autocmd filetype cs nnoremap <buffer> <leader>u ^3x
 
 " Indenting
 " Indent the file from top to bottom
@@ -103,6 +108,7 @@ autocmd filetype c nnoremap <buffer> <leader>u ^3x
 nnoremap <leader>i :norm gg=G<CR>`.
 
 " Common abbreviations
+" Note: must disable paste (set nopaste) for abbreviations to work
 iabbrev teh the
 iabbrev @@ RaviSinha@my.unt.edu
 iabbrev and and
@@ -111,20 +117,26 @@ iabbrev waht what
 iabbrev tehn then
 " Add more as and when needed
 
+" From Derek Wyatt's videos, for end of current word changing
+set cpoptions+=$
+
 " Disabling paste - having paste set doesn't let abbreviations work
 " set paste
 " Set nopaste explicitly - sometimes it is necessary
 set nopaste
 
-" Autocmds
-" Sourcing your $MYVIMRC makes Vim read your autocmds again, and it has no way
-" of knowing whether it's a duplicate. That makes Vim run slower because it 
-" executes the same commands over and over
+" Autocmds - other than commenting
+" Sourcing your $MYVIMRC makes Vim read your autocmds again, 
+" and it has no way of knowing whether it's a duplicate. 
+" That makes Vim run slower because it 
+" executes the same commands over and over; grouping prevents that
 " Event, Pattern, Command
 
 augroup filetype_html
+    " Clean out existing commands in the group
     autocmd!
-    autocmd BufNewFile,BufRead *.html setlocal nowrap "Do not wrap HTML documents (local buffer only)
+    "Do not wrap HTML documents (local buffer only)
+    autocmd BufNewFile,BufRead *.html setlocal nowrap 
     "Automatically indent HTML before saving
     "Don't like intendation overhead (time) at every save
     "autocmd BufWritePre *.html normal gg=G 
@@ -132,9 +144,8 @@ augroup END
 
 augroup filetype_python
     autocmd!
-    autocmd FileType python set textwidth=79 "PEP-8, set 80 character limit on lines
-    " From some plugin to autocomplete Python commands (need to check later)
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
+    "PEP-8, set 80 character limit on lines
+    autocmd FileType python set textwidth=79 
 augroup END
 
 " --- not working yet / still creating ---
@@ -142,12 +153,6 @@ augroup END
 " Creating Terminal-like mappings
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-
-"
-" From Derek Wyatt's videos, for end of current word changing
-" Not working
-set cpoptions+=$
-"
 
 " Highlighting different words using different colors
 " Leader with 1-6
