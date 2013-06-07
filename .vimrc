@@ -74,8 +74,12 @@ nnoremap <leader>w :w<CR>
 
 " More interesting mappings
 " Surrounding the word with single and double quotes
+" Courtest Steve Losh
 nnoremap <leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
 nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
+
+" 'Make space above and below'
+nnoremap <leader>m O<ESC>jo<ESC>k
 
 " Commenting - preferable for blocks
 vnoremap <leader># :norm I# <CR>
