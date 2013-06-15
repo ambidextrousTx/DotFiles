@@ -1,4 +1,4 @@
-u Ambidextrous
+" Ambidextrous
 " $MYVIMRC
 " Evolving over time
 " Latest advancements: Steve Losh's Learn Vimscript the Hard Way
@@ -33,6 +33,9 @@ set linebreak " Don't break words on line warp
 " Split to the bottom and right by default
 set splitbelow
 set splitright
+" When opening a file, do not fold blocks
+" Folding is managed by the filetypes (see augroups below)
+set foldlevelstart=99
 
 " Line numbers
 set number          
