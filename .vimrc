@@ -1,29 +1,25 @@
-" Ambidextrous
+u Ambidextrous
 " $MYVIMRC
 " Evolving over time
 " Latest advancements: Steve Losh's Learn Vimscript the Hard Way
 
 " Tips
-" nore = non recursive mappings are better because they never take other mappings into account
-" and thus never get into recursive mode. ALWAYS use non recursive mappings
+" nore = non recursive mappings are better because they never take other
+" mappings into account and thus never get into recursive mode. 
+" ALWAYS use non recursive mappings
 " ---------------------------------------- 
 
 " Greeting at startup
 " Cute, but not needed
 " echo ">^.^<"
 
-" Adding tpope's Pathogen for easy plugin management
+" Adding tpope's Pathogen for easy plugin management {{{
 execute pathogen#infect()
 filetype plugin indent on 
+" }}}
 
 " UTF-8 all the things
 set encoding=utf-8
-
-" Autmatically change dirs upon opening
-" Only needed/ works for GUI
-if has("gui_running")
-    set autochdir
-endif
 
 " Leader key
 let mapleader = ","
@@ -81,6 +77,7 @@ nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 " 'Make space above and below'
 nnoremap <leader>m O<ESC>jo<ESC>k
 
+" Commenting and uncommenting {{{
 " Commenting - preferable for blocks
 vnoremap <leader># :norm I# <CR>
 vnoremap <leader>/ :norm I// <CR>
@@ -105,13 +102,13 @@ autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
 autocmd filetype c nnoremap <buffer> <leader>u ^3x
 autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
 autocmd filetype cs nnoremap <buffer> <leader>u ^3x
+" }}}
 
 " Indenting
-" Indent the file from top to bottom
-" and leave the cursor at that point
+" Indent the file from top to bottom and leave the cursor at that point
 nnoremap <leader>i :norm gg=G<CR>`.
 
-" Common abbreviations
+" Common abbreviations {{{
 " Note: must disable paste (set nopaste) for abbreviations to work
 iabbrev teh the
 iabbrev @@ RaviSinha@my.unt.edu
@@ -120,6 +117,7 @@ iabbrev thign thing
 iabbrev waht what
 iabbrev tehn then
 " Add more as and when needed
+" }}}
 
 " From Derek Wyatt's videos, for end of current word changing
 set cpoptions+=$
@@ -141,16 +139,35 @@ augroup filetype_html
     autocmd!
     "Do not wrap HTML documents (local buffer only)
     autocmd BufNewFile,BufRead *.html setlocal nowrap 
-    "Automatically indent HTML before saving
-    "Don't like intendation overhead (time) at every save
-    "autocmd BufWritePre *.html normal gg=G 
+    " Automatically indent HTML before saving
+    " Don't like intendation overhead (time) at every save
+    " autocmd BufWritePre *.html normal gg=G 
 augroup END
 
 augroup filetype_python
     autocmd!
     "PEP-8, set 80 character limit on lines
     autocmd FileType python set textwidth=79 
+    autocmd FileType python setlocal foldmethod=indent
 augroup END
+
+" Code folding for VimScript files
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" Part from the official Vim page
+" Part from Steve Losh's book
+" Beautify the status bar
+set laststatus=2
+set statusline=
+set statusline+=%1*%40F\ 
+set statusline+=%3*\ %{&fenc!=''?&fenc:&enc}\ 
+set statusline+=%1*\ %Y\ 
+set statusline+=%4*\ %05l/%05L:%03c\ 
+set statusline+=%1*\ %-16{strftime(\"%Y-%m-%d\ %H:%M\")}\ 
+set statusline+=%5*\ %-3m\ 
 
 " --- not working yet / still creating ---
 
@@ -223,17 +240,18 @@ set shiftround                                  " Round the indent to a multiple
 " General
 syntax on
 if has("gui_running")
-    colorscheme summerfruit256
+    colorscheme badwolf
+    " Setting spelling only when the GUI is running
     set spell
+    " Autmatically change dirs upon opening
+    " Only needed/ works for GUI
+    set autochdir
 else
-    colorscheme default
+    colorscheme badwolf
 endif
 
 set go-=T
 
-" Setting spelling only when the GUI is running
-"set spell " Turn on automatic spell check 
-set foldmethod=manual " Manually fold using zfa} when wanted
 set wildmode=longest,list " Shell-style autocomplete
 
 " Remaps
@@ -318,18 +336,6 @@ inoremap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
 inoremap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
 " Vim Scripts from the official Vim page
-" Beautify the status bar
-set laststatus=2
-set statusline=
-set statusline+=%1*%-52F\ 
-set statusline+=%2*\ %{&ff=='unix'?'\\n':(&ff=='mac'?'\\r':'\\r\\n')}\ 
-set statusline+=%3*\ %{&fenc!=''?&fenc:&enc}\ 
-set statusline+=%1*\ %Y\ 
-set statusline+=%4*\ %04l/%03c\ 
-set statusline+=%2*\ 0x%04.4B\ 
-set statusline+=%1*\ %-16{strftime(\"%Y-%m-%d\ %H:%M\")}\ 
-set statusline+=%5*\ %-3m\ 
-
 
 hi User1 guifg=#112605  guibg=#aefe7B gui=italic
 hi User2 guifg=#391100  guibg=#d3905c gui=italic
