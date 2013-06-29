@@ -33,6 +33,7 @@ set linebreak " Don't break words on line warp
 " Split to the bottom and right by default
 set splitbelow
 set splitright
+
 " When opening a file, do not fold blocks
 " Folding is managed by the filetypes (see augroups below)
 set foldlevelstart=99
@@ -92,6 +93,7 @@ autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype tex nnoremap <buffer> <leader>c I% <ESC>
 " Add more filetypes as needed  
 
 " Uncommenting - preferable for blocks
@@ -105,6 +107,7 @@ autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
 autocmd filetype c nnoremap <buffer> <leader>u ^3x
 autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
 autocmd filetype cs nnoremap <buffer> <leader>u ^3x
+autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 " }}}
 
 " Indenting
