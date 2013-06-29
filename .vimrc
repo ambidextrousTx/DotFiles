@@ -163,6 +163,12 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+" Special stuff for Java files
+augroup filetype_java
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=syntax
+augroup END
+
 " Part from the official Vim page
 " Part from Steve Losh's book
 " Beautify the status bar
