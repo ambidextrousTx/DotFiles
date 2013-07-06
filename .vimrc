@@ -120,6 +120,7 @@ iabbrev teh the
 iabbrev @@ RaviSinha@my.unt.edu
 iabbrev and and
 iabbrev thign thing
+iabbrev thigns things
 iabbrev waht what
 iabbrev tehn then
 " Add more as and when needed
@@ -180,6 +181,14 @@ set statusline+=%1*\ %Y\
 set statusline+=%4*\ %05l/%05L:%03c\ 
 set statusline+=%1*\ %-16{strftime(\"%Y-%m-%d\ %H:%M\")}\ 
 set statusline+=%5*\ %-3m\ 
+
+nnoremap <leader>r :call Ambidextrous()<CR>
+
+" My first own Vim function
+function! Ambidextrous()
+    echo "This is Ravi's Vim setup"
+endfunction
+
 
 " --- not working yet / still creating ---
 
