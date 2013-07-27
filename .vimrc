@@ -72,6 +72,12 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Since :w mostly becomes :W when done manually
 nnoremap <leader>w :w<CR>
 
+" Running things in Python
+nnoremap <leader>pn :sp ./project-notes.txt<CR>
+nnoremap <leader>rp :!python %<CR>
+nnoremap <leader>rt :!pyrg %<CR>
+nnoremap <leader>rr :!ruby %<CR>
+
 " More interesting mappings
 " Surrounding the word with single and double quotes
 " Courtest Steve Losh
