@@ -14,15 +14,17 @@ ZSH_THEME="ambidextrous"
 # Ambidextrous - useful aliases
 alias ls='ls -a'
 alias lit='ssh ravi@lit09.csci.unt.edu'
-alias python='python2.7'
 alias clj='/Users/ambidextrous/Coding/Clojure/clj'
 alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias sml='/usr/local/sml'
 
+# Ambidextrous: changed, Jun 24, 2013
 # For enabling interactive plotting
-alias ipython='ipython --pylab'
+# alias ipython='ipython --pylab'
+# Python stuff, not needed anymore after Anaconda - Ambidextrous
+# alias python='python2.7'
 
 # Ambidextrous - grc - for colorizing terminal output
 # /usr/local/etc/grc.conf has the regexes and their colors defined
@@ -39,6 +41,13 @@ alias gl='git log'
 alias ta='tmux attach'
 alias tl='tmux ls'
 alias tn='tmux new -s'
+
+# Ambidextrous - helpful functions
+function cl {
+    ls='ls -a'
+    cd $1
+    eval $ls 
+}
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -65,4 +74,4 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # Ambidextrous: this seems to already have been taken from my previous bash profile
 # Ambidextrous: putting Macports Python version at the beginning so that pyrg works
-export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin
+export PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin
