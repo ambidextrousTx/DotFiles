@@ -49,6 +49,14 @@ function cl {
     eval $ls 
 }
 
+# 'Discover' something within the text of the files in 
+# a directory structure and color-print it
+function disc {
+    cmd='find . * | xargs egrep --color=always $1'
+    eval $cmd
+}
+
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
