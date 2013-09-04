@@ -59,6 +59,9 @@ endfunction
 " A shortcut to CtrlPMixed
 nnoremap <leader>p :CtrlPMixed<CR>
 
+" A shortcut to TagbarToggle from Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
+
 " Moving lines up and down
 nnoremap _ ddkP
 nnoremap - ddp
