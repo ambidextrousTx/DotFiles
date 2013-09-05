@@ -75,6 +75,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Since :w mostly becomes :W when done manually
 nnoremap <leader>w :w<CR>
 
+" Justifying a paragraph in a simpler way
+nnoremap <leader>j gqip
+
 " Running things in Python
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
 nnoremap <leader>rp :!python %<CR>
