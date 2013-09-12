@@ -84,6 +84,9 @@ nnoremap <leader>rp :!python %<CR>
 nnoremap <leader>rt :!pyrg %<CR>
 nnoremap <leader>rr :!ruby %<CR>
 
+" Running things in JavaScript
+nnoremap <leader>rn :!node %<CR>
+
 " More interesting mappings
 " Surrounding the word with single and double quotes
 " Courtest Steve Losh
@@ -92,6 +95,10 @@ nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 
 " 'Make space above and below'
 nnoremap <leader>m O<ESC>jo<ESC>k
+
+" Toggle background light or dark
+nnoremap <leader>bl :set background=light<CR>
+nnoremap <leader>bd :set background=dark<CR>
 
 " Commenting and uncommenting {{{
 " Commenting - preferable for blocks
