@@ -26,13 +26,23 @@ let mapleader = ","
 
 " Basics
 set nocompatible 	" No compatibility with legacy vi
-set showcmd
+set showcmd " Show the number of selected lines, characters etc.
 set hlsearch
 set incsearch
 set linebreak " Don't break words on line warp
 " Split to the bottom and right by default
 set splitbelow
 set splitright
+
+" Allow backspacing in insert mode
+set backspace=indent,eol,start
+
+" Highlight the current line
+set cursorline
+
+" Show matching parentheses for a bit
+set showmatch
+set matchtime=1
 
 " When opening a file, do not fold blocks
 " Folding is managed by the filetypes (see augroups below)
