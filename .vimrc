@@ -1,7 +1,7 @@
 " Ambidextrous
 " $MYVIMRC
 " Evolving over time
-" Latest advancements: Steve Losh's Learn Vimscript the Hard Way
+" Influences - Armin Ronacher, Steve Losh, Harry Percival, Ben Orenstein
 
 " Tips
 " nore = non recursive mappings are better because they never take other
@@ -30,6 +30,7 @@ set showcmd " Show the number of selected lines, characters etc.
 set hlsearch
 set incsearch
 set linebreak " Don't break words on line warp
+
 " Split to the bottom and right by default
 set splitbelow
 set splitright
@@ -72,9 +73,11 @@ nnoremap <leader>p :CtrlPMixed<CR>
 " A shortcut to TagbarToggle from Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 
+" Navigation {{{
 " Moving lines up and down
 nnoremap _ ddkP
 nnoremap - ddp
+" }}}
 
 " Make it easier to make it easier to edit text
 " Edit vimrc
@@ -162,6 +165,43 @@ set cpoptions+=$
 " set paste
 " Set nopaste explicitly - sometimes it is necessary
 set nopaste
+
+" Indentation
+set shiftround                                  " Round the indent to a multiple of shiftwidth
+
+" General
+syntax on
+if has("gui_running")
+    colorscheme badwolf
+    " GUI font, labels on tabs
+    if has("mac")
+        set guifont=Source\ Code\ Pro:h13
+    else
+        set guifont=Source\ Code\ Pro\ 13
+    endif
+    set guitablabel=%N\ %t
+    " Setting spelling only when the GUI is running
+    set spell
+    " Autmatically change dirs upon opening
+    " Only needed/ works for GUI
+    set autochdir
+else
+    colorscheme default
+endif
+
+set go-=T
+
+set wildmode=longest,list " Shell-style autocomplete
+
+" Remaps
+" Don't need man page brought up
+nnoremap K <nop> 
+
+" Using spelling suggestions a bit easily
+" Needs spell set
+" Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
+set complete-=k complete+=k
+
 
 " Autocmds - other than commenting
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, 
@@ -281,38 +321,6 @@ hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
 hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
 hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 
-
-
-
-" Indentation
-set shiftround                                  " Round the indent to a multiple of shiftwidth
-
-" General
-syntax on
-if has("gui_running")
-    colorscheme badwolf
-    " Setting spelling only when the GUI is running
-    set spell
-    " Autmatically change dirs upon opening
-    " Only needed/ works for GUI
-    set autochdir
-else
-    colorscheme badwolf
-endif
-
-set go-=T
-
-set wildmode=longest,list " Shell-style autocomplete
-
-" Remaps
-" Don't need man page brought up
-nnoremap K <nop> 
-
-" Using spelling suggestions a bit easily
-" Needs spell set
-" Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
-set complete-=k complete+=k
-
 " Via Drew Neil at Vimcasts.org
 " Ctrl Shift P to see the highlight group for word
 " Help in creating Vim colorscheme files
@@ -333,9 +341,6 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab		" Use spaces, not tabs
 
-" GUI font, labels on tabs
-set guifont=Source\ Code\ Pro:h13
-set guitablabel=%N\ %t
 set t_Co=256
 
 " Filetype detection and behavior adjustment
