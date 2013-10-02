@@ -239,6 +239,12 @@ augroup filetype_java
     autocmd FileType vim setlocal foldmethod=syntax
 augroup END
 
+" Special tab-spacing for Ruby files
+augroup filetype_ruby
+    autocmd!
+    autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
 " Part from the official Vim page
 " Part from Steve Losh's book
 " Beautify the status bar
