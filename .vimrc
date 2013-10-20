@@ -54,6 +54,12 @@ set matchtime=1
 set history=1000
 set undolevels=1000
 
+" Easy window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Don't autocomplete some file names (don't need to open them)
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
