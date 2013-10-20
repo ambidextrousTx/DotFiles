@@ -185,6 +185,9 @@ iabbrev tehn then
 " From Derek Wyatt's videos, for end of current word changing
 set cpoptions+=$
 
+" Set a vertical line at column 80 for visual aid for longer code lines
+set colorcolumn=80
+
 " Disabling paste - having paste set doesn't let abbreviations work
 " set paste
 " Set nopaste explicitly - sometimes it is necessary
