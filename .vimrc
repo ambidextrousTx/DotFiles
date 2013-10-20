@@ -84,10 +84,6 @@ set incsearch
 " Does not work with list on
 set linebreak " Don't break words on line warp
 
-" Indenting
-set autoindent
-set copyindent
-
 " Split to the bottom and right by default
 set splitbelow
 set splitright
@@ -220,7 +216,7 @@ inoremap <silent> <C-D>d <C-R>=strftime("%e %b %Y")<CR>
 inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 " }}}
 
-" {{{ Mappings for running things
+" Mappings for running things {{{ 
 " Running things in Python
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
 nnoremap <leader>rp :!python %<CR>
@@ -265,6 +261,9 @@ autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 nnoremap <leader>i :norm gg=G<CR>`.
 " Round the indent to a multiple of shiftwidth
 set shiftround                                  
+
+set autoindent
+set copyindent
 
 " }}}
 
