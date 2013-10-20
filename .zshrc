@@ -18,7 +18,6 @@ alias clj='/Users/ambidextrous/Coding/Clojure/clj'
 alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
-alias sml='/usr/local/sml'
 
 # Ambidextrous: changed, Jun 24, 2013
 # For enabling interactive plotting
