@@ -32,6 +32,10 @@ set hlsearch
 set incsearch
 set linebreak " Don't break words on line warp
 
+" Indenting
+set autoindent
+set copyindent
+
 " Split to the bottom and right by default
 set splitbelow
 set splitright
@@ -45,6 +49,13 @@ set cursorline
 " Show matching parentheses for a bit
 set showmatch
 set matchtime=1
+
+" History and undo levels 
+set history=1000
+set undolevels=1000
+
+" Don't autocomplete some file names (don't need to open them)
+set wildignore=*.swp,*.bak,*.pyc,*.class
 
 " When opening a file, do not fold blocks
 " Folding is managed by the filetypes (see augroups below)
