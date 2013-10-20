@@ -188,6 +188,13 @@ set cpoptions+=$
 " Set a vertical line at column 80 for visual aid for longer code lines
 set colorcolumn=80
 
+" Steve Losh/ Drew Neil: tab and eol characters, and mapping to toggl
+" Colors work for badwolf and some other schemes (NonText and SpecialKey)
+set list
+set listchars=tab:▸\ ,eol:¬
+
+nnoremap <leader>l :set list!<CR>
+
 " Disabling paste - having paste set doesn't let abbreviations work
 " set paste
 " Set nopaste explicitly - sometimes it is necessary
