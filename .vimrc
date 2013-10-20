@@ -19,17 +19,69 @@ execute pathogen#infect()
 filetype plugin indent on 
 " }}}
 
+" Initialization stuff {{{
+set nocompatible 	" No compatibility with legacy vi
+
 " UTF-8 all the things
 set encoding=utf-8
 
 " Leader key
 let mapleader = ","
 
-" Basics
-set nocompatible 	" No compatibility with legacy vi
+" From Derek Wyatt's videos, for end of current word changing
+set cpoptions+=$
+
+" Set a vertical line at column 80 for visual aid for longer code lines
+set colorcolumn=80
+
+" Steve Losh/ Drew Neil: tab and eol characters, and mapping to toggl
+" Colors work for badwolf and some other schemes (NonText and SpecialKey)
+set list
+set listchars=tab:▸\ ,eol:¬
+
+nnoremap <leader>l :set list!<CR>
+
+syntax on
+if has("gui_running")
+    colorscheme badwolf
+    " GUI font, labels on tabs
+    if has("mac")
+        set guifont=Source\ Code\ Pro:h13
+    else
+        set guifont=Source\ Code\ Pro\ 13
+    endif
+    set guitablabel=%N\ %t
+    " Setting spelling only when the GUI is running
+    set spell
+    " Autmatically change dirs upon opening
+    " Only needed/ works for GUI
+    set autochdir
+else
+    colorscheme default
+endif
+
+set t_Co=256
+
+" Filetype detection and behavior adjustment
+if has("autocmd")
+    filetype on
+    filetype plugin on
+    " Added specially for Scala
+    filetype indent on
+    set autoindent
+    set si
+endif
+
+" }}}
+
+" Basics, one liners {{{
+" Disabling paste - having paste set doesn't let abbreviations work
+set nopaste
+
 set showcmd " Show the number of selected lines, characters etc.
 set hlsearch
 set incsearch
+" Does not work with list on
 set linebreak " Don't break words on line warp
 
 " Indenting
@@ -54,12 +106,6 @@ set matchtime=1
 set history=1000
 set undolevels=1000
 
-" Easy window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Don't autocomplete some file names (don't need to open them)
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
@@ -75,6 +121,22 @@ set number
 " Number of columns for the line numbers
 set numberwidth=4                               
 
+set go-=T
+
+set wildmode=longest,list " Shell-style autocomplete
+
+" Remaps
+" Don't need man page brought up
+nnoremap K <nop> 
+
+" Using spelling suggestions a bit easily
+" Needs spell set
+" Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
+set complete-=k complete+=k
+
+" }}}
+
+" Useful functions {{{
 " Start relative number or normal number
 nnoremap <leader>sr :call SetRelativeNumber()<CR>
 nnoremap <leader>sn :call SetNumber()<CR>
@@ -88,17 +150,40 @@ function! SetRelativeNumber()
     set relativenumber!                         
 endfunction
 
-" A shortcut to CtrlPMixed
-nnoremap <leader>p :CtrlPMixed<CR>
+" My first own Vim function
+nnoremap <leader>r :call Ambidextrous()<CR>
+function! Ambidextrous()
+    echo "This is Ravi's Vim setup"
+endfunction
 
-" A shortcut to TagbarToggle from Tagbar
-nnoremap <leader>t :TagbarToggle<CR>
+" Capitalize sentence and center it, then move down
+nnoremap <leader>c :call CapitalizeCenterAndMoveDown()<CR>
+function! CapitalizeCenterAndMoveDown()
+    s/\<./\u&/g "Built-in substitution capitalizes every word
+    center	"Built-in center command centers entire line
+    +1	"Built-in relative motion (+1 line down)
+endfunction
+" }}} "
 
 " Navigation {{{
 " Moving lines up and down
 nnoremap _ ddkP
 nnoremap - ddp
+
+" Easy window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " }}}
+
+" Useful mappings {{{
+" A shortcut to CtrlPMixed
+nnoremap <leader>p :CtrlPMixed<CR>
+
+" A shortcut to TagbarToggle from Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
 
 " Make it easier to make it easier to edit text
 " Edit vimrc
@@ -115,16 +200,6 @@ nnoremap <leader>j gqip
 " Toggle spell check
 nnoremap <leader>s :set spell!<CR>
 
-" Running things in Python
-nnoremap <leader>pn :sp ./project-notes.txt<CR>
-nnoremap <leader>rp :!python %<CR>
-nnoremap <leader>rt :!pyrg %<CR>
-nnoremap <leader>rr :!ruby %<CR>
-
-" Running things in JavaScript
-nnoremap <leader>rn :!node %<CR>
-
-" More interesting mappings
 " Surrounding the word with single and double quotes
 " Courtesy Steve Losh
 nnoremap <leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
@@ -136,6 +211,25 @@ nnoremap <leader>m O<ESC>jo<ESC>k
 " Toggle background light or dark
 nnoremap <leader>bl :set background=light<CR>
 nnoremap <leader>bd :set background=dark<CR>
+
+nnoremap <Space> <PageDown>
+nnoremap <Tab> <PageUp>
+" Insert current date
+inoremap <silent> <C-D>d <C-R>=strftime("%e %b %Y")<CR>
+" Insert current time
+inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
+" }}}
+
+" {{{ Mappings for running things
+" Running things in Python
+nnoremap <leader>pn :sp ./project-notes.txt<CR>
+nnoremap <leader>rp :!python %<CR>
+nnoremap <leader>rt :!pyrg %<CR>
+nnoremap <leader>rr :!ruby %<CR>
+
+" Running things in JavaScript
+nnoremap <leader>rn :!node %<CR>
+" }}}
 
 " Commenting and uncommenting {{{
 " Commenting - preferable for blocks
@@ -166,9 +260,13 @@ autocmd filetype cs nnoremap <buffer> <leader>u ^3x
 autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 " }}}
 
-" Indenting
+" Indenting {{{
 " Indent the file from top to bottom and leave the cursor at that point
 nnoremap <leader>i :norm gg=G<CR>`.
+" Round the indent to a multiple of shiftwidth
+set shiftround                                  
+
+" }}}
 
 " Common abbreviations {{{
 " Note: must disable paste (set nopaste) for abbreviations to work
@@ -182,62 +280,7 @@ iabbrev tehn then
 " Add more as and when needed
 " }}}
 
-" From Derek Wyatt's videos, for end of current word changing
-set cpoptions+=$
-
-" Set a vertical line at column 80 for visual aid for longer code lines
-set colorcolumn=80
-
-" Steve Losh/ Drew Neil: tab and eol characters, and mapping to toggl
-" Colors work for badwolf and some other schemes (NonText and SpecialKey)
-set list
-set listchars=tab:▸\ ,eol:¬
-
-nnoremap <leader>l :set list!<CR>
-
-" Disabling paste - having paste set doesn't let abbreviations work
-" set paste
-" Set nopaste explicitly - sometimes it is necessary
-set nopaste
-
-" Indentation
-set shiftround                                  " Round the indent to a multiple of shiftwidth
-
-" General
-syntax on
-if has("gui_running")
-    colorscheme badwolf
-    " GUI font, labels on tabs
-    if has("mac")
-        set guifont=Source\ Code\ Pro:h13
-    else
-        set guifont=Source\ Code\ Pro\ 13
-    endif
-    set guitablabel=%N\ %t
-    " Setting spelling only when the GUI is running
-    set spell
-    " Autmatically change dirs upon opening
-    " Only needed/ works for GUI
-    set autochdir
-else
-    colorscheme default
-endif
-
-set go-=T
-
-set wildmode=longest,list " Shell-style autocomplete
-
-" Remaps
-" Don't need man page brought up
-nnoremap K <nop> 
-
-" Using spelling suggestions a bit easily
-" Needs spell set
-" Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
-set complete-=k complete+=k
-
-
-" Autocmds - other than commenting
+" Autocmds {{{
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, 
 " and it has no way of knowing whether it's a duplicate. 
 " That makes Vim run slower because it 
@@ -259,6 +302,13 @@ augroup filetype_python
     "PEP-8, set 80 character limit on lines
     autocmd FileType python set textwidth=79 
     autocmd FileType python setlocal foldmethod=indent
+    " No tabs in the source file
+    " All tabs are 4 space characters
+    set tabstop=4 
+    set shiftwidth=4
+    set softtabstop=4
+    " Use spaces, not tabs
+    set expandtab 
 augroup END
 
 " Code folding for VimScript files
@@ -279,6 +329,9 @@ augroup filetype_ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
+" }}}
+
+" {{{ Status bar
 " Part from the official Vim page
 " Part from Steve Losh's book
 " Beautify the status bar
@@ -290,14 +343,7 @@ set statusline+=%1*\ %Y\
 set statusline+=%4*\ %05l/%05L:%03c\ 
 set statusline+=%1*\ %-16{strftime(\"%Y-%m-%d\ %H:%M\")}\ 
 set statusline+=%5*\ %-3m\ 
-
-nnoremap <leader>r :call Ambidextrous()<CR>
-
-" My first own Vim function
-function! Ambidextrous()
-    echo "This is Ravi's Vim setup"
-endfunction
-
+" }}}
 
 " --- not working yet / still creating ---
 
@@ -373,26 +419,6 @@ function! <SID>SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" For Python
-" No tabs in the source file
-" All tabs are 4 space characters
-set tabstop=4 
-set shiftwidth=4
-set softtabstop=4
-set expandtab		" Use spaces, not tabs
-
-set t_Co=256
-
-" Filetype detection and behavior adjustment
-if has("autocmd")
-    filetype on
-    filetype plugin on
-    " Added specially for Scala
-    filetype indent on
-    set autoindent
-    set si
-endif
-
 "Set ctags to the newer version installed from SourceForge
 "The newer version is exuberant ctags
 "Needed to work with Taglist
@@ -412,23 +438,7 @@ function! ToggleSyntax()
     endif
 endfunction
 
-function! CapitalizeCenterAndMoveDown()
-    s/\<./\u&/g "Built-in substitution capitalizes every word
-    center	"Built-in center command centers entire line
-    +1	"Built-in relative motion (+1 line down)
-endfunction
-
-" Mappings
 nnoremap <silent> ;s :call ToggleSyntax()<CR>
-nnoremap <Space> <PageDown>
-nnoremap <Tab> <PageUp>
-nnoremap <silent> ;c :call CapitalizeCenterAndMoveDown()<CR>
-" Insert current date
-inoremap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
-" Insert current time
-inoremap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
-" Simple calculator - sometimes works, and sometimes does not
-inoremap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
 " Vim Scripts from the official Vim page
 
