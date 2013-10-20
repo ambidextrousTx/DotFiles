@@ -1,7 +1,8 @@
 " Ambidextrous
 " $MYVIMRC
 " Evolving over time
-" Influences - Armin Ronacher, Steve Losh, Harry Percival, Ben Orenstein
+" Influences - Armin Ronacher, Steve Losh, Harry Percival, Ben Orenstein, Drew
+" Neil
 
 " Tips
 " nore = non recursive mappings are better because they never take other
@@ -91,6 +92,9 @@ nnoremap <leader>w :w<CR>
 " Justifying a paragraph in a simpler way
 nnoremap <leader>j gqip
 
+" Toggle spell check
+nnoremap <leader>s :set spell!<CR>
+
 " Running things in Python
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
 nnoremap <leader>rp :!python %<CR>
@@ -102,7 +106,7 @@ nnoremap <leader>rn :!node %<CR>
 
 " More interesting mappings
 " Surrounding the word with single and double quotes
-" Courtest Steve Losh
+" Courtesy Steve Losh
 nnoremap <leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
 nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 
