@@ -63,6 +63,9 @@ nnoremap <C-l> <C-w>l
 " Don't autocomplete some file names (don't need to open them)
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
+" Clearing out the results of a search
+nnoremap <leader><space> :noh<CR>
+
 " When opening a file, do not fold blocks
 " Folding is managed by the filetypes (see augroups below)
 set foldlevelstart=99
