@@ -225,6 +225,9 @@ nnoremap <leader>rr :!ruby %<CR>
 
 " Running things in JavaScript
 nnoremap <leader>rn :!node %<CR>
+
+" Running an SML program
+nnoremap <leader>rm :!sml %<CR>
 " }}}
 
 " Commenting and uncommenting {{{
