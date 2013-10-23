@@ -243,6 +243,7 @@ autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype tex nnoremap <buffer> <leader>c I% <ESC>
+autocmd filetype sml nnoremap <buffer> <leader>c I(*<SPACE><SPACE><ESC>xA<SPACE>*)<ESC>0
 " Add more filetypes as needed  
 
 " Uncommenting - preferable for blocks
@@ -257,6 +258,7 @@ autocmd filetype c nnoremap <buffer> <leader>u ^3x
 autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
 autocmd filetype cs nnoremap <buffer> <leader>u ^3x
 autocmd filetype tex nnoremap <buffer> <leader>u ^2x
+autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
 " }}}
 
 " Indenting {{{
