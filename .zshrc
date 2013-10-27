@@ -18,6 +18,7 @@ alias clj='/Users/ambidextrous/Coding/Clojure/clj'
 alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
+alias hh='history | egrep -i'
 
 # Ambidextrous: changed, Jun 24, 2013
 # For enabling interactive plotting
@@ -81,4 +82,4 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # Ambidextrous: this seems to already have been taken from my previous bash profile
 # Ambidextrous: putting Macports Python version at the beginning so that pyrg works
-export PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin
+export PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin
