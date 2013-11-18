@@ -221,6 +221,9 @@ inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
 nnoremap <leader>rp :!python %<CR>
 nnoremap <leader>rt :!pyrg %<CR>
+
+
+" Running things in Ruby
 nnoremap <leader>rr :!ruby %<CR>
 
 " Running things in JavaScript
@@ -228,6 +231,10 @@ nnoremap <leader>rn :!node %<CR>
 
 " Running an SML program
 nnoremap <leader>rm :!sml %<CR>
+
+" Running a Scala script
+nnoremap <leader>rs :!scala %<CR>
+
 " }}}
 
 " Commenting and uncommenting {{{
