@@ -245,6 +245,7 @@ vnoremap <leader>/ :norm I// <CR>
 " Better commenting
 autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
 autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype scala nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
@@ -260,6 +261,7 @@ vnoremap <leader>n/ :norm ^3x<CR>
 " Better uncommenting 
 autocmd filetype python nnoremap <buffer> <leader>u ^2x
 autocmd filetype java nnoremap <buffer> <leader>u ^3x
+autocmd filetype scala nnoremap <buffer> <leader>u ^3x
 autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
 autocmd filetype c nnoremap <buffer> <leader>u ^3x
 autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
