@@ -16,6 +16,8 @@
 
 " Adding tpope's Pathogen for easy plugin management {{{
 execute pathogen#infect()
+" Supposed to automatically update Vim's helptags
+execute pathogen#helptags()
 filetype plugin indent on 
 " }}}
 
@@ -36,6 +38,7 @@ set colorcolumn=80
 
 " Steve Losh/ Drew Neil: tab and eol characters, and mapping to toggl
 " Colors work for badwolf and some other schemes (NonText and SpecialKey)
+" Does not work when word wrap is set and vice versa
 set list
 set listchars=tab:▸\ ,eol:¬
 
@@ -56,10 +59,14 @@ if has("gui_running")
     " Autmatically change dirs upon opening
     " Only needed/ works for GUI
     set autochdir
+    
+    " In MacVim, disable some menu options that are unpleasing to the eye
+    set go-=T
 else
     colorscheme default
 endif
 
+" 256-colors
 set t_Co=256
 
 " Filetype detection and behavior adjustment
@@ -75,13 +82,13 @@ endif
 " }}}
 
 " Basics, one liners {{{
-" Disabling paste - having paste set doesn't let abbreviations work
+" Disabling paste - abbreviations do not work otherwise
 set nopaste
 
 set showcmd " Show the number of selected lines, characters etc.
 set hlsearch
 set incsearch
-" Does not work with list on
+" Does not work with list on (for displaying the special characters)
 set linebreak " Don't break words on line warp
 
 " Split to the bottom and right by default
@@ -99,8 +106,9 @@ set showmatch
 set matchtime=1
 
 " History and undo levels 
-set history=1000
-set undolevels=1000
+" Bumping up to 9,999; this isn't 1990s anymore, can use extra memory
+set history=9999
+set undolevels=9999
 
 " Don't autocomplete some file names (don't need to open them)
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -113,15 +121,12 @@ nnoremap <leader><space> :noh<CR>
 set foldlevelstart=99
 
 " Line numbers
-set number          
+set number
 " Number of columns for the line numbers
-set numberwidth=4                               
-
-set go-=T
+set numberwidth=4
 
 set wildmode=longest,list " Shell-style autocomplete
 
-" Remaps
 " Don't need man page brought up
 nnoremap K <nop> 
 
@@ -133,6 +138,19 @@ set complete-=k complete+=k
 " }}}
 
 " Useful functions {{{
+
+" Via Drew Neil at Vimcasts.org
+" Ctrl Shift Q to see the highlight group for word
+" Help in creating Vim colorscheme files
+" Show syntax highlighting groups for word under cursor
+nnoremap <C-S-Q> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " Start relative number or normal number
 nnoremap <leader>sr :call SetRelativeNumber()<CR>
 nnoremap <leader>sn :call SetNumber()<CR>
@@ -146,13 +164,14 @@ function! SetRelativeNumber()
     set relativenumber!                         
 endfunction
 
-" My first own Vim function
+" My very first Vim function
 nnoremap <leader>r :call Ambidextrous()<CR>
 function! Ambidextrous()
     echo "This is Ravi's Vim setup"
 endfunction
 
 " Capitalize sentence and center it, then move down
+" Cannot use it if it's code and the commenting shortcut is set
 nnoremap <leader>c :call CapitalizeCenterAndMoveDown()<CR>
 function! CapitalizeCenterAndMoveDown()
     s/\<./\u&/g "Built-in substitution capitalizes every word
@@ -226,7 +245,7 @@ nnoremap <leader>rt :!pyrg %<CR>
 " Running things in Ruby
 nnoremap <leader>rr :!ruby %<CR>
 
-" Running things in JavaScript
+" Running things in JavaScript (Node)
 nnoremap <leader>rn :!node %<CR>
 
 " Running an SML program
@@ -245,6 +264,7 @@ vnoremap <leader>/ :norm I// <CR>
 " Better commenting
 autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
 autocmd filetype ruby nnoremap <buffer> <leader>c I# <ESC>
+autocmd filetype perl nnoremap <buffer> <leader>c I# <ESC>
 autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype scala nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
@@ -262,6 +282,7 @@ vnoremap <leader>n/ :norm ^3x<CR>
 " Better uncommenting 
 autocmd filetype python nnoremap <buffer> <leader>u ^2x
 autocmd filetype ruby nnoremap <buffer> <leader>u ^2x
+autocmd filetype perl nnoremap <buffer> <leader>u ^2x
 autocmd filetype java nnoremap <buffer> <leader>u ^3x
 autocmd filetype scala nnoremap <buffer> <leader>u ^3x
 autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
@@ -276,7 +297,7 @@ autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
 " Indent the file from top to bottom and leave the cursor at that point
 nnoremap <leader>i :norm gg=G<CR>`.
 " Round the indent to a multiple of shiftwidth
-set shiftround                                  
+set shiftround
 
 set autoindent
 set copyindent
@@ -287,11 +308,12 @@ set copyindent
 " Note: must disable paste (set nopaste) for abbreviations to work
 iabbrev teh the
 iabbrev @@ RaviSinha@my.unt.edu
-iabbrev and and
+iabbrev adn and
 iabbrev thign thing
 iabbrev thigns things
 iabbrev waht what
 iabbrev tehn then
+iabbrev wnat want
 " Add more as and when needed
 " }}}
 
@@ -319,11 +341,11 @@ augroup filetype_python
     autocmd FileType python setlocal foldmethod=indent
     " No tabs in the source file
     " All tabs are 4 space characters
-    set tabstop=4 
+    set tabstop=4
     set shiftwidth=4
     set softtabstop=4
     " Use spaces, not tabs
-    set expandtab 
+    set expandtab
 augroup END
 
 " Code folding for VimScript files
@@ -361,10 +383,6 @@ set statusline+=%5*\ %-3m\
 " }}}
 
 " --- not working yet / still creating ---
-
-" Creating Terminal-like mappings
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
 
 " Highlighting different words using different colors
 " Leader with 1-6
@@ -422,18 +440,6 @@ hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
 hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
 hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 
-" Via Drew Neil at Vimcasts.org
-" Ctrl Shift P to see the highlight group for word
-" Help in creating Vim colorscheme files
-" Show syntax highlighting groups for word under cursor
-nnoremap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-    if !exists("*synstack")
-        return
-    endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
 "Set ctags to the newer version installed from SourceForge
 "The newer version is exuberant ctags
 "Needed to work with Taglist
@@ -443,17 +449,6 @@ map <F4> :TlistToggle<CR>
 map <F5> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "For Michael Sanders' TextMate Snippet Emulator plugin
-
-" Functions
-function! ToggleSyntax()
-    if exists("g:syntax_on")
-        syntax off
-    else
-        syntax enable
-    endif
-endfunction
-
-nnoremap <silent> ;s :call ToggleSyntax()<CR>
 
 " Vim Scripts from the official Vim page
 
