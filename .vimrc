@@ -73,10 +73,7 @@ set t_Co=256
 if has("autocmd")
     filetype on
     filetype plugin on
-    " Added specially for Scala
     filetype indent on
-    set autoindent
-    set si
 endif
 
 " }}}
@@ -301,6 +298,7 @@ set shiftround
 
 set autoindent
 set copyindent
+set smartindent
 
 " }}}
 
