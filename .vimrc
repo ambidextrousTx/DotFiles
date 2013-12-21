@@ -220,6 +220,9 @@ nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 " 'Make space above and below'
 nnoremap <leader>m O<ESC>jo<ESC>k
 
+" Exchange current word and next
+nnoremap <leader>xw dWelp
+
 " Toggle background light or dark
 nnoremap <leader>bl :set background=light<CR>
 nnoremap <leader>bd :set background=dark<CR>
