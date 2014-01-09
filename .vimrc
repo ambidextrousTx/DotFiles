@@ -217,6 +217,11 @@ nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>' viw<ESC>a'<ESC>hbi'<ESC>lel
 nnoremap <leader>" viw<ESC>a"<ESC>hbi"<ESC>lel
 
+" Extension - surrounding with (), {}, []
+nnoremap <leader>) viw<ESC>a)<ESC>hbi(<ESC>lel
+nnoremap <leader>] viw<ESC>a]<ESC>hbi[<ESC>lel
+nnoremap <leader>} viw<ESC>a}<ESC>hbi{<ESC>lel
+
 " 'Make space above and below'
 nnoremap <leader>m O<ESC>jo<ESC>k
 
