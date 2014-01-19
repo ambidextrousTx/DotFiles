@@ -165,7 +165,7 @@ function! SetRelativeNumber()
 endfunction
 
 " My very first Vim function
-nnoremap <leader>r :call Ambidextrous()<CR>
+nnoremap <leader>R :call Ambidextrous()<CR>
 function! Ambidextrous()
     echo "This is Ravi's Vim setup"
 endfunction
@@ -249,7 +249,6 @@ nnoremap <leader>pn :sp ./project-notes.txt<CR>
 nnoremap <leader>rp :!python %<CR>
 nnoremap <leader>rt :!pyrg %<CR>
 
-
 " Running things in Ruby
 nnoremap <leader>rr :!ruby %<CR>
 
@@ -261,6 +260,9 @@ nnoremap <leader>rm :!sml %<CR>
 
 " Running a Scala script
 nnoremap <leader>rs :!scala %<CR>
+
+" Running a GoLang script without building
+nnoremap <leader>rg :!go run %<CR>
 
 " }}}
 
