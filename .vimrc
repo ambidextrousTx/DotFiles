@@ -71,9 +71,12 @@ set t_Co=256
 
 " Filetype detection and behavior adjustment
 if has("autocmd")
-    filetype on
+    filetype off
+    filetype plugin indent off
+    set runtimepath+=/usr/local/go/misc/vim
     filetype plugin on
     filetype indent on
+    filetype on
 endif
 
 " }}}
