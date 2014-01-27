@@ -194,6 +194,9 @@ nnoremap <C-l> <C-w>l
 " }}}
 
 " Useful mappings {{{
+" Insert checkmark
+nnoremap <leader>ch i<C-v>u2713<Esc>
+
 " A shortcut to CtrlPMixed
 nnoremap <leader>p :CtrlPMixed<CR>
 
