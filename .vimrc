@@ -197,6 +197,11 @@ nnoremap <C-l> <C-w>l
 " Insert checkmark
 nnoremap <leader>ch i<C-v>u2713<Esc>
 
+" Easy search and replace for the file or a selection
+" Original idea from Damian Conway
+nnoremap <leader>S :%s/
+vnoremap <leader>S :s/
+
 " A shortcut to CtrlPMixed
 nnoremap <leader>p :CtrlPMixed<CR>
 
