@@ -217,6 +217,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Since :w mostly becomes :W when done manually
 nnoremap <leader>w :w<CR>
 
+" Since sometimes we have to enforce utf-8
+nnoremap <leader>W :w ++enc=utf-8<CR>
+
 " Justifying a paragraph in a simpler way
 nnoremap <leader>j gqip
 
