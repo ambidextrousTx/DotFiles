@@ -27,6 +27,9 @@ set nocompatible 	" No compatibility with legacy vi
 " UTF-8 all the things
 set encoding=utf-8
 
+" Prefer Unix line-endings, handle Mac and DOS endings
+set fileformats=unix,mac,dos
+
 " Leader key
 let mapleader = ","
 
