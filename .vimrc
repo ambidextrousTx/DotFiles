@@ -197,6 +197,11 @@ nnoremap <C-l> <C-w>l
 " }}}
 
 " Useful mappings {{{
+
+" Easily toggle the first letter on a line between capital and small 
+" (easier to type, though the same number of keystrokes)
+nnoremap <leader>fl ^~
+
 " Insert checkmark
 nnoremap <leader>ch i<C-v>u2713<Esc>
 
