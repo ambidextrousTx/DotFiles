@@ -6,6 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="ambidextrous"
+# ZSH_THEME="random"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -87,3 +88,6 @@ export PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/bin:/Library/Fram
 # Ambidextrous: use MacVim for Vmail instead of the terminal Vim
 export PATH=/Applications/MacVim-snapshot-72:$PATH
 export VMAIL_VIM=mvim
+
+# Ambidextrous: updating path to include npm-installed binaries
+export PATH=/usr/local/share/npm/bin:$PATH
