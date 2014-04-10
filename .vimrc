@@ -262,6 +262,11 @@ inoremap <silent> <C-D>d <C-R>=strftime("%e %b %Y")<CR>
 inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 " }}}
 
+" My own matching and highlighting rules {{{
+highlight MyGroup ctermbg=red guibg=red ctermfg=yellow guifg=yellow term=bold
+match MyGroup /^TODO/
+" }}}
+
 " Mappings for running things {{{ 
 " Running things in Python
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
