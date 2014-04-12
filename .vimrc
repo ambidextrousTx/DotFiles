@@ -263,8 +263,13 @@ inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 " }}}
 
 " My own matching and highlighting rules {{{
-highlight MyGroup ctermbg=red guibg=red ctermfg=yellow guifg=yellow term=bold
-match MyGroup /^TODO/
+nnoremap <leader>h :call HighlightTODOs()<CR>
+
+" Making this a function; apparently some colorschemes override this
+function! HighlightTODOs()
+    highlight MyGroup ctermbg=red guibg=red ctermfg=yellow guifg=yellow term=bold
+    match MyGroup /^TODO/
+endfunction
 " }}}
 
 " Mappings for running things {{{ 
