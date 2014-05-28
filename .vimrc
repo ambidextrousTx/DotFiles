@@ -197,6 +197,9 @@ nnoremap <C-l> <C-w>l
 " }}}
 
 " Useful mappings {{{
+"
+" Easily repeat normal command over a visual block
+xnoremap . :normal .<CR>
 
 " Easily toggle the first letter on a line between capital and small 
 " (easier to type, though the same number of keystrokes)
