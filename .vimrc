@@ -417,12 +417,12 @@ augroup END
 " Beautify the status bar
 set laststatus=2
 set statusline=
-set statusline+=%1*%40F\ 
-set statusline+=%3*\ %{&fenc!=''?&fenc:&enc}\ 
-set statusline+=%1*\ %Y\ 
-set statusline+=%4*\ %05l/%05L:%03c\ 
-set statusline+=%1*\ %-16{strftime(\"%Y-%m-%d\ %H:%M\")}\ 
-set statusline+=%5*\ %-3m\ 
+set statusline+=%1*%40F]\ 
+set statusline+=%3*\ [%{&fenc!=''?&fenc:&enc}]\ 
+set statusline+=%1*\ [%Y]\ 
+set statusline+=%4*\ [%05l/%05L:%03c]\ 
+set statusline+=%1*\ [%-16{strftime(\"%Y-%m-%d\ %H:%M\")}]\ 
+set statusline+=%5*\ [%pPC]\ 
 " }}}
 
 " --- not working yet / still creating ---
