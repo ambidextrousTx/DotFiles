@@ -138,6 +138,9 @@ nnoremap K <nop>
 " Adds the dictionary to autocomplete so <C-N> and <C-P> will work without <C-X><C-K> first
 set complete-=k complete+=k
 
+" When joining lines with J, do not add 2 spaces
+set nojoinspaces
+
 " }}}
 
 " Useful functions {{{
