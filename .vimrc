@@ -43,7 +43,7 @@ set colorcolumn=80
 " Colors work for badwolf and some other schemes (NonText and SpecialKey)
 " Does not work when word wrap is set and vice versa
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
 nnoremap <leader>l :set list!<CR>
 
@@ -100,6 +100,9 @@ set splitright
 
 " Allow backspacing in insert mode
 set backspace=indent,eol,start
+
+" Autosave on losing focus (always save)
+au FocusLost * :wa
 
 " Highlight the current line
 set cursorline
