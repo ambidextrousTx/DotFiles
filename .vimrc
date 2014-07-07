@@ -101,8 +101,12 @@ set splitright
 " Allow backspacing in insert mode
 set backspace=indent,eol,start
 
-" Autosave on losing focus (always save)
+" Autosave on losing focus (always save) - Steve Losh
 au FocusLost * :wa
+
+" Keep search matches in the middle of the window - Steve Losh
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " Highlight the current line
 set cursorline
