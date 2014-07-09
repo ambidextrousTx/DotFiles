@@ -1,3 +1,4 @@
+" Introduction {{{
 " Ambidextrous
 " $MYVIMRC
 " Evolving over time
@@ -13,14 +14,13 @@
 " Greeting at startup
 " Cute, but not needed
 " echo ">^.^<"
-
+" }}}
 " Adding tpope's Pathogen for easy plugin management {{{
 execute pathogen#infect()
 " Supposed to automatically update Vim's helptags
 execute pathogen#helptags()
 filetype plugin indent on 
 " }}}
-
 " Initialization stuff {{{
 set nocompatible 	" No compatibility with legacy vi
 
@@ -83,7 +83,6 @@ if has("autocmd")
 endif
 
 " }}}
-
 " Basics, one liners {{{
 " Disabling paste - abbreviations do not work otherwise
 set nopaste
@@ -151,9 +150,7 @@ set complete-=k complete+=k
 
 " When joining lines with J, do not add 2 spaces
 set nojoinspaces
-
 " }}}
-
 " Useful functions {{{
 
 " Via Drew Neil at Vimcasts.org
@@ -196,7 +193,6 @@ function! CapitalizeCenterAndMoveDown()
     +1	"Built-in relative motion (+1 line down)
 endfunction
 " }}} "
-
 " Navigation {{{
 " Moving lines up and down
 nnoremap _ ddkP
@@ -207,9 +203,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
 " }}}
-
 " Useful mappings {{{
 "
 " Easily repeat normal command over a visual block
@@ -278,7 +272,6 @@ inoremap <silent> <C-D>d <C-R>=strftime("%e %b %Y")<CR>
 " Insert current time
 inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 " }}}
-
 " My own matching and highlighting rules {{{
 nnoremap <leader>h :call HighlightTODOs()<CR>
 
@@ -288,7 +281,6 @@ function! HighlightTODOs()
     match MyGroup /^TODO/
 endfunction
 " }}}
-
 " Mappings for running things {{{ 
 " Running things in Python
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
@@ -309,9 +301,7 @@ nnoremap <leader>rs :!scala %<CR>
 
 " Running a GoLang script without building
 nnoremap <leader>rg :!go run %<CR>
-
 " }}}
-
 " Commenting and uncommenting {{{
 " Commenting - preferable for blocks
 vnoremap <leader># :norm I# <CR>
@@ -348,7 +338,6 @@ autocmd filetype cs nnoremap <buffer> <leader>u ^3x
 autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
 " }}}
-
 " Indenting {{{
 " Indent the file from top to bottom and leave the cursor at that point
 nnoremap <leader>i :norm gg=G<CR>`.
@@ -358,9 +347,7 @@ set shiftround
 set autoindent
 set copyindent
 set smartindent
-
 " }}}
-
 " Common abbreviations {{{
 " Note: must disable paste (set nopaste) for abbreviations to work
 iabbrev teh the
@@ -373,7 +360,6 @@ iabbrev tehn then
 iabbrev wnat want
 " Add more as and when needed
 " }}}
-
 " Autocmds {{{
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, 
 " and it has no way of knowing whether it's a duplicate. 
@@ -424,7 +410,6 @@ augroup filetype_ruby
 augroup END
 
 " }}}
-
 " {{{ Status bar
 " Part from the official Vim page
 " Part from Steve Losh's book
@@ -438,7 +423,6 @@ set statusline+=%4*\ [%05l/%05L:%03c]\
 set statusline+=%1*\ [%-16{strftime(\"%Y-%m-%d\ %H:%M\")}]\ 
 set statusline+=%5*\ [%pPC]\ 
 " }}}
-
 " --- not working yet / still creating ---
 
 " Highlighting different words using different colors
