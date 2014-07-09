@@ -255,6 +255,10 @@ nnoremap <leader>) viw<ESC>a)<ESC>hbi(<ESC>lel
 nnoremap <leader>] viw<ESC>a]<ESC>hbi[<ESC>lel
 nnoremap <leader>} viw<ESC>a}<ESC>hbi{<ESC>lel
 
+" Use <leader>z to 'focus' the current fold
+" Courtesy Steve Losh
+nnoremap <leader>z zMzvzz
+
 " 'Make space above and below'
 nnoremap <leader>m O<ESC>jo<ESC>k
 
