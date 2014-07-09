@@ -108,6 +108,10 @@ au FocusLost * :wa
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Am I ever going to use Vim's traditional regexes?
+nnoremap / /\v
+vnoremap / /\v
+
 " Highlight the current line
 set cursorline
 
