@@ -275,6 +275,11 @@ nnoremap <Tab> <PageUp>
 inoremap <silent> <C-D>d <C-R>=strftime("%e %b %Y")<CR>
 " Insert current time
 inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
+
+" Remap H and L, not using the traditional meanings anyway
+nnoremap H ^
+nnoremap L $
+
 " }}}
 " My own matching and highlighting rules {{{
 nnoremap <leader>h :call HighlightTODOs()<CR>
