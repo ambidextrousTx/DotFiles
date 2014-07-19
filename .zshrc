@@ -57,6 +57,11 @@ function disc {
     eval $cmd
 }
 
+function isthere {
+    cmd='ls | egrep -i $1'
+    eval $cmd
+}
+
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -91,3 +96,4 @@ export VMAIL_VIM=mvim
 
 # Ambidextrous: updating path to include npm-installed binaries
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/share/npm/lib/node_modules:$PATH
