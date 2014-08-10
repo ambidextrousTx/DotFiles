@@ -322,6 +322,7 @@ autocmd filetype ruby nnoremap <buffer> <leader>c I# <ESC>
 autocmd filetype perl nnoremap <buffer> <leader>c I# <ESC>
 autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype scala nnoremap <buffer> <leader>c I// <ESC>
+autocmd filetype rust nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
@@ -340,6 +341,7 @@ autocmd filetype ruby nnoremap <buffer> <leader>u ^2x
 autocmd filetype perl nnoremap <buffer> <leader>u ^2x
 autocmd filetype java nnoremap <buffer> <leader>u ^3x
 autocmd filetype scala nnoremap <buffer> <leader>u ^3x
+autocmd filetype rust nnoremap <buffer> <leader>u ^3x
 autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
 autocmd filetype c nnoremap <buffer> <leader>u ^3x
 autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
