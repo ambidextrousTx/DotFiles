@@ -7,9 +7,9 @@
 
 " Tips
 " nore = non recursive mappings are better because they never take other
-" mappings into account and thus never get into recursive mode. 
+" mappings into account and thus never get into recursive mode.
 " ALWAYS use non recursive mappings
-" ---------------------------------------- 
+" ----------------------------------------
 
 " Greeting at startup
 " Cute, but not needed
@@ -434,6 +434,19 @@ set laststatus=2
 " set statusline+=%4*\ [%05l/%05L:%03c]\ 
 " set statusline+=%1*\ [%-16{strftime(\"%Y-%m-%d\ %H:%M\")}]\ 
 " set statusline+=%5*\ [%pPC]\ 
+"
+" Airline stuffs from the customization documentation
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 " --- not working yet / still creating ---
 
