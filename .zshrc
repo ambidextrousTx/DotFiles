@@ -25,6 +25,7 @@ alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias hh='history | egrep -i'
+alias up='cd ..'
 
 # Ambidextrous: changed, Jun 24, 2013
 # For enabling interactive plotting
