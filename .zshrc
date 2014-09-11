@@ -1,3 +1,8 @@
+echo "Welcome to Olympus, Ambidextrous"
+echo ""
+echo -n "Today is "; date "+%m-%d-%Y %H:%M:%S"
+echo -n "System status: "; uptime
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
