@@ -49,6 +49,9 @@ alias ta='tmux attach'
 alias tl='tmux ls'
 alias tn='tmux new -s'
 
+# Ambidextrous - Scala REPL has colors starting from 2.11.4
+alias scala='scala -Dscala.color'
+
 # Ambidextrous - helpful functions
 # Change directory and list items
 function cl {
