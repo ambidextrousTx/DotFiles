@@ -50,6 +50,7 @@ alias tl='tmux ls'
 alias tn='tmux new -s'
 
 # Ambidextrous - helpful functions
+# Change directory and list items
 function cl {
     ls='ls -a'
     cd $1
@@ -63,11 +64,17 @@ function disc {
     eval $cmd
 }
 
+# 'IsThere' something in the files in a directory that
+# matches the string case-insensitively?
 function isthere {
     cmd='ls | egrep -i $1'
     eval $cmd
 }
 
+function teleport {
+    mkdir -p $1
+    cd $1
+}
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -103,3 +110,4 @@ export VMAIL_VIM=mvim
 # Ambidextrous: updating path to include npm-installed binaries
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/share/npm/lib/node_modules:$PATH
+export PATH=/usr/local/lib/node_modules/:$PATH
