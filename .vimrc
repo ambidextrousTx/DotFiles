@@ -412,11 +412,11 @@ augroup filetype_python
     autocmd FileType python setlocal foldmethod=indent
     " No tabs in the source file
     " All tabs are 4 space characters
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
+    autocmd FileType python set tabstop=4
+    autocmd FileType python set shiftwidth=4
+    autocmd FileType python set softtabstop=4
     " Use spaces, not tabs
-    set expandtab
+    autocmd FileType python set expandtab
 augroup END
 
 " Code folding for VimScript files
