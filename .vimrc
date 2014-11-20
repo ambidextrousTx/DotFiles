@@ -437,6 +437,12 @@ augroup filetype_ruby
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
+" Special stuff for Rust
+augroup filetype_rust
+    autocmd!
+    autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
+augroup END
+
 " }}}
 " {{{ Status bar
 " Part from the official Vim page
