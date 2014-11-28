@@ -217,6 +217,11 @@ nnoremap <C-l> <C-w>l
 " }}}
 " Useful mappings {{{
 "
+" Copy and paste between different Tmux panes running Vim
+" Only visual mode for now for copying
+vnoremap <leader>CB :w! ~/.vimbuffer<CR>
+nnoremap <leader>PB :r ~/.vimbuffer<CR>
+"
 " Easier tab management 
 nnoremap <leader>Tf :tabfirst<CR>
 nnoremap <leader>Tm :tabmove<CR>
