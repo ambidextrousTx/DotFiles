@@ -2,8 +2,8 @@
 " Ambidextrous
 " $MYVIMRC
 " Evolving over time
-" Influences - Armin Ronacher, Steve Losh, Harry Percival, Ben Orenstein, Drew
-" Neil
+" Influences - Armin Ronacher, Steve Losh, Harry Percival, Ben Orenstein,
+" Drew Neil, Jack Franklin
 
 " Tips
 " nore = non recursive mappings are better because they never take other
@@ -217,6 +217,11 @@ nnoremap <C-l> <C-w>l
 " }}}
 " Useful mappings {{{
 "
+" Easier tab management 
+nnoremap <leader>Tf :tabfirst<CR>
+nnoremap <leader>Tm :tabmove<CR>
+nnoremap <leader>Tl :tablast<CR>
+
 " Easily repeat normal command over a visual block
 xnoremap . :normal .<CR>
 
