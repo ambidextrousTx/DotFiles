@@ -95,6 +95,10 @@ endif
 
 " }}}
 " Basics, one liners {{{
+"
+" Never need 'Ex mode'
+nnoremap Q <NOP>
+"
 " Disabling paste - abbreviations do not work otherwise
 set nopaste
 
