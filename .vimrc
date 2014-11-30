@@ -354,6 +354,7 @@ autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
 autocmd filetype tex nnoremap <buffer> <leader>c I% <ESC>
 autocmd filetype sml nnoremap <buffer> <leader>c I(*<SPACE><SPACE><ESC>xA<SPACE>*)<ESC>0
+autocmd filetype html nnoremap <buffer> <leader>c I<!--<ESC>A--><ESC>
 " Add more filetypes as needed  
 
 " Uncommenting - preferable for blocks
@@ -373,6 +374,7 @@ autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
 autocmd filetype cs nnoremap <buffer> <leader>u ^3x
 autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
+autocmd filetype html nnoremap <buffer> <leader>u ^4xA<BS><BS><BS><ESC>0
 " }}}
 " Indenting {{{
 " Indent the file from top to bottom and leave the cursor at that point
