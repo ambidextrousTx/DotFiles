@@ -22,7 +22,7 @@ execute pathogen#helptags()
 filetype plugin indent on 
 " }}}
 " Initialization stuff {{{
-set nocompatible 	" No compatibility with legacy vi
+set nocompatible	" No compatibility with legacy vi
 
 " UTF-8 all the things
 set encoding=utf-8
@@ -342,39 +342,45 @@ vnoremap <leader># :norm I# <CR>
 vnoremap <leader>/ :norm I// <CR>
 
 " Better commenting
-autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
-autocmd filetype ruby nnoremap <buffer> <leader>c I# <ESC>
-autocmd filetype perl nnoremap <buffer> <leader>c I# <ESC>
-autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype scala nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype rust nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
-autocmd filetype tex nnoremap <buffer> <leader>c I% <ESC>
-autocmd filetype sml nnoremap <buffer> <leader>c I(*<SPACE><SPACE><ESC>xA<SPACE>*)<ESC>0
-autocmd filetype html nnoremap <buffer> <leader>c I<!--<ESC>A--><ESC>
-" Add more filetypes as needed  
+augroup commenting
+	autocmd!
+	autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
+	autocmd filetype ruby nnoremap <buffer> <leader>c I# <ESC>
+	autocmd filetype perl nnoremap <buffer> <leader>c I# <ESC>
+	autocmd filetype java nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype scala nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype rust nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype tex nnoremap <buffer> <leader>c I% <ESC>
+	autocmd filetype sml nnoremap <buffer> <leader>c I(*<SPACE><SPACE><ESC>xA<SPACE>*)<ESC>0
+	autocmd filetype html nnoremap <buffer> <leader>c I<!--<ESC>A--><ESC>
+	" Add more filetypes as needed  
+augroup end
 
 " Uncommenting - preferable for blocks
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
 
 " Better uncommenting 
-autocmd filetype python nnoremap <buffer> <leader>u ^2x
-autocmd filetype ruby nnoremap <buffer> <leader>u ^2x
-autocmd filetype perl nnoremap <buffer> <leader>u ^2x
-autocmd filetype java nnoremap <buffer> <leader>u ^3x
-autocmd filetype scala nnoremap <buffer> <leader>u ^3x
-autocmd filetype rust nnoremap <buffer> <leader>u ^3x
-autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
-autocmd filetype c nnoremap <buffer> <leader>u ^3x
-autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
-autocmd filetype cs nnoremap <buffer> <leader>u ^3x
-autocmd filetype tex nnoremap <buffer> <leader>u ^2x
-autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
-autocmd filetype html nnoremap <buffer> <leader>u ^4xA<BS><BS><BS><ESC>0
+augroup uncommenting
+	autocmd!
+	autocmd filetype python nnoremap <buffer> <leader>u ^2x
+	autocmd filetype ruby nnoremap <buffer> <leader>u ^2x
+	autocmd filetype perl nnoremap <buffer> <leader>u ^2x
+	autocmd filetype java nnoremap <buffer> <leader>u ^3x
+	autocmd filetype scala nnoremap <buffer> <leader>u ^3x
+	autocmd filetype rust nnoremap <buffer> <leader>u ^3x
+	autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
+	autocmd filetype c nnoremap <buffer> <leader>u ^3x
+	autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
+	autocmd filetype cs nnoremap <buffer> <leader>u ^3x
+	autocmd filetype tex nnoremap <buffer> <leader>u ^2x
+	autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
+	autocmd filetype html nnoremap <buffer> <leader>u ^4xA<BS><BS><BS><ESC>0
+augroup end
 " }}}
 " Indenting {{{
 " Indent the file from top to bottom and leave the cursor at that point
