@@ -3,7 +3,7 @@
 " $MYVIMRC
 " Evolving over time
 " Influences - Armin Ronacher, Steve Losh, Harry Percival, Ben Orenstein,
-" Drew Neil, Jack Franklin
+" Drew Neil, Jack Franklin, Damian Conway
 
 " Tips
 " nore = non recursive mappings are better because they never take other
@@ -221,6 +221,10 @@ nnoremap <C-l> <C-w>l
 " }}}
 " Useful mappings {{{
 "
+" Really not using ; and this saves an additional shift press
+" Tip from Damian Conway
+nnoremap ; :
+
 " Copy and paste between different Tmux panes running Vim
 " Only visual mode for now for copying
 vnoremap <leader>CB :w! ~/.vimbuffer<CR>
