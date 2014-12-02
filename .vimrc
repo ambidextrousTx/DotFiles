@@ -107,6 +107,8 @@ set hlsearch
 set incsearch
 " Does not work with list on (for displaying the special characters)
 set linebreak " Don't break words on line warp
+" Like the idea of linebreaks showing explicitly
+set showbreak=>\ 
 
 " Split to the bottom and right by default
 set splitbelow
