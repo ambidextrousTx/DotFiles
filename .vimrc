@@ -95,6 +95,9 @@ endif
 
 " }}}
 " Basics, one liners {{{
+" 
+" Interesting feature; keeping some context offset around when scrolling
+set scrolloff=5
 "
 " Never need 'Ex mode'
 nnoremap Q <NOP>
