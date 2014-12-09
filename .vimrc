@@ -215,6 +215,17 @@ function! CapitalizeCenterAndMoveDown()
     center	"Built-in center command centers entire line
     +1	"Built-in relative motion (+1 line down)
 endfunction
+
+" From Andrew Burgess/ Gary Bernhardt- open the URL under
+" cursor in browser
+function! OpenUrlUnderCursor()
+    let url=matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
+    if url != ""
+        silent exec "!open '".url."'" | redraw!
+    endif
+endfunction
+
+map <leader>o :call OpenUrlUnderCursor()<CR>
 " }}} "
 " Navigation {{{
 " Moving lines up and down
