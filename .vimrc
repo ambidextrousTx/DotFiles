@@ -160,6 +160,7 @@ set number
 " Number of columns for the line numbers
 set numberwidth=4
 
+set wildmenu
 set wildmode=longest,list " Shell-style autocomplete
 
 " Don't need man page brought up
@@ -462,6 +463,7 @@ augroup END
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim setlocal foldmarker={{{,}}}
 augroup END
 
 " Special stuff for Java files
