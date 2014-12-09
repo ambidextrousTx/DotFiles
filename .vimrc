@@ -244,6 +244,10 @@ nnoremap <C-l> <C-w>l
 " Tip from Damian Conway
 nnoremap ; :
 
+" Since I do this so often, making it permanent
+" Recording progress during pomodoros
+nnoremap <leader>pr A▶<ESC>0
+
 " Copy and paste between different Tmux panes running Vim
 " Only visual mode for now for copying
 vnoremap <leader>CB :w! ~/.vimbuffer<CR>
