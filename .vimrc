@@ -418,6 +418,8 @@ iabbrev wnat want
 " Abbreviations specific to the command mode
 cnoreabbrev t tabe
 cnoreabbrev c colo
+cnoreabbrev C0 set colorcolumn=0
+cnoreabbrev C1 set colorcolumn=80
 " }}}
 " Autocmds {{{
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, 
