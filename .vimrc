@@ -414,6 +414,10 @@ iabbrev waht what
 iabbrev tehn then
 iabbrev wnat want
 " Add more as and when needed
+"
+" Abbreviations specific to the command mode
+cnoreabbrev t tabe
+cnoreabbrev c colo
 " }}}
 " Autocmds {{{
 " Sourcing your $MYVIMRC makes Vim read your autocmds again, 
