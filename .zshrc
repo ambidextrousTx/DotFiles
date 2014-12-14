@@ -52,6 +52,10 @@ alias tn='tmux new -s'
 # Ambidextrous - Scala REPL has colors starting from 2.11.4
 alias scala='scala -Dscala.color'
 
+# Ambidextrous - Useful shell options
+# Do not overwrite a file through stdout redirect if file exists
+set -o noclobber
+
 # Ambidextrous - helpful functions
 # Change directory and list items
 function cl {
