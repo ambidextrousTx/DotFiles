@@ -106,7 +106,6 @@ plugins=(git python)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-# Ambidextrous: this seems to already have been taken from my previous bash profile
 # Ambidextrous: putting Macports Python version at the beginning so that pyrg works
 export PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/go/bin
 
@@ -118,3 +117,6 @@ export VMAIL_VIM=mvim
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/share/npm/lib/node_modules:$PATH
 export PATH=/usr/local/lib/node_modules/:$PATH
+
+# Ambidextrous: Because ./ is annoying and inelegant
+export PATH=$PATH:.
