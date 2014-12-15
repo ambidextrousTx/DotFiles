@@ -334,6 +334,9 @@ nnoremap L $
 
 " }}}
 " My own matching and highlighting rules {{{
+" Make Vim jump between < and > upon pressing % (augment the default)
+set matchpairs+=<:>
+
 nnoremap <leader>h :call HighlightTODOs()<CR>
 
 " Making this a function; apparently some colorschemes override this
