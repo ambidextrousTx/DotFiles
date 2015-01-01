@@ -127,3 +127,4 @@ export PATH=$PATH:/Users/ambidextrous/Coding/DataScienceCLI/data-science-at-the-
 
 # Ambidextrous: For third party Go libraries/ binaries
 export GOPATH=/Users/ambidextrous/Coding/GoLang/lib
+export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin/
