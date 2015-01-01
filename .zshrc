@@ -120,3 +120,10 @@ export PATH=/usr/local/lib/node_modules/:$PATH
 
 # Ambidextrous: Because ./ is annoying and inelegant
 export PATH=$PATH:.
+
+# Ambidextrous: Adding all the tools supplied with the Data Science
+# at the Command Line book
+export PATH=$PATH:/Users/ambidextrous/Coding/DataScienceCLI/data-science-at-the-command-line/tools/
+
+# Ambidextrous: For third party Go libraries/ binaries
+export GOPATH=/Users/ambidextrous/Coding/GoLang/lib
