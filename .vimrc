@@ -48,7 +48,9 @@ let mapleader = ","
 set cpoptions+=$
 
 " Set a vertical line at column 80 for visual aid for longer code lines
-set colorcolumn=80
+" Turn off by default; can be toggled with shortcuts C0 and C1 
+" Other tools like syntastic will highlight when a line is >= 80 cols
+" set colorcolumn=80
 
 " Steve Losh/ Drew Neil: tab and eol characters, and mapping to toggl
 " Colors work for badwolf and some other schemes (NonText and SpecialKey)
