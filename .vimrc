@@ -31,13 +31,13 @@ set encoding=utf-8
 " Ambidextrous- altered from the previous (unix,mac,dos)
 " set fileformats=unix,mac,dos
 if has("mac")
-    set fileformat=mac
+	set fileformat=mac
 else 
-    if has("unix")
-        set fileformat=unix
-    else
-        set fileformat=dos
-    endif
+	if has("unix")
+		set fileformat=unix
+	else
+		set fileformat=dos
+	endif
 endif
 
 
@@ -62,24 +62,24 @@ nnoremap <leader>l :set list!<CR>
 
 syntax on
 if has("gui_running")
-    colorscheme badwolf
-    " GUI font, labels on tabs
-    if has("mac")
-        set guifont=Source\ Code\ Pro:h13
-    else
-        set guifont=Source\ Code\ Pro\ 13
-    endif
-    set guitablabel=%N\ %t
-    " Setting spelling only when the GUI is running
-    set spell
-    " Autmatically change dirs upon opening
-    " Only needed/ works for GUI
-    set autochdir
-    
-    " In MacVim, disable some menu options that are unpleasing to the eye
-    set go-=T
+	colorscheme badwolf
+	" GUI font, labels on tabs
+	if has("mac")
+		set guifont=Source\ Code\ Pro:h13
+	else
+		set guifont=Source\ Code\ Pro\ 13
+	endif
+	set guitablabel=%N\ %t
+	" Setting spelling only when the GUI is running
+	set spell
+	" Autmatically change dirs upon opening
+	" Only needed/ works for GUI
+	set autochdir
+
+	" In MacVim, disable some menu options that are unpleasing to the eye
+	set go-=T
 else
-    colorscheme default
+	colorscheme default
 endif
 
 " 256-colors
@@ -87,12 +87,12 @@ set t_Co=256
 
 " Filetype detection and behavior adjustment
 if has("autocmd")
-    filetype off
-    filetype plugin indent off
-    set runtimepath+=/usr/local/go/misc/vim
-    filetype plugin on
-    filetype indent on
-    filetype on
+	filetype off
+	filetype plugin indent off
+	set runtimepath+=/usr/local/go/misc/vim
+	filetype plugin on
+	filetype indent on
+	filetype on
 endif
 
 " }}}
@@ -184,10 +184,10 @@ set nojoinspaces
 " Show syntax highlighting groups for word under cursor
 nnoremap <C-S-Q> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-    if !exists("*synstack")
-        return
-    endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 " Start relative number or normal number
@@ -196,35 +196,35 @@ nnoremap <leader>sn :call SetNumber()<CR>
 
 " Functions to toggle between number and nonumber
 function! SetNumber()
-    set number!                                 
+	set number!                                 
 endfunction
 
 function! SetRelativeNumber()
-    set relativenumber!                         
+	set relativenumber!                         
 endfunction
 
 " My very first Vim function
 nnoremap <leader>R :call Ambidextrous()<CR>
 function! Ambidextrous()
-    echo "This is Ravi's Vim setup"
+	echo "This is Ravi's Vim setup"
 endfunction
 
 " Capitalize sentence and center it, then move down
 " Cannot use it if it's code and the commenting shortcut is set
 nnoremap <leader>c :call CapitalizeCenterAndMoveDown()<CR>
 function! CapitalizeCenterAndMoveDown()
-    s/\<./\u&/g "Built-in substitution capitalizes every word
-    center	"Built-in center command centers entire line
-    +1	"Built-in relative motion (+1 line down)
+	s/\<./\u&/g "Built-in substitution capitalizes every word
+	center	"Built-in center command centers entire line
+	+1	"Built-in relative motion (+1 line down)
 endfunction
 
 " From Andrew Burgess/ Gary Bernhardt- open the URL under
 " cursor in browser
 function! OpenUrlUnderCursor()
-    let url=matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
-    if url != ""
-        silent exec "!open '".url."'" | redraw!
-    endif
+	let url=matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
+	if url != ""
+		silent exec "!open '".url."'" | redraw!
+	endif
 endfunction
 
 map <leader>o :call OpenUrlUnderCursor()<CR>
@@ -343,8 +343,8 @@ nnoremap <leader>h :call HighlightTODOs()<CR>
 
 " Making this a function; apparently some colorschemes override this
 function! HighlightTODOs()
-    highlight MyGroup ctermbg=red guibg=red ctermfg=yellow guifg=yellow term=bold
-    match MyGroup /^TODO/
+	highlight MyGroup ctermbg=red guibg=red ctermfg=yellow guifg=yellow term=bold
+	match MyGroup /^TODO/
 endfunction
 " }}}
 " Mappings for running things {{{ 
@@ -390,7 +390,7 @@ augroup commenting
 	autocmd filetype sml nnoremap <buffer> <leader>c I(*<SPACE><SPACE><ESC>xA<SPACE>*)<ESC>0
 	autocmd filetype html nnoremap <buffer> <leader>c I<!--<ESC>A--><ESC>
 	" Add more filetypes as needed  
-augroup end
+augroup END
 
 " Uncommenting - preferable for blocks
 vnoremap <leader>n# :norm ^2x<CR>
@@ -412,7 +412,7 @@ augroup uncommenting
 	autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 	autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
 	autocmd filetype html nnoremap <buffer> <leader>u ^4xA<BS><BS><BS><ESC>0
-augroup end
+augroup END
 " }}}
 " Indenting {{{
 " Indent the file from top to bottom and leave the cursor at that point
@@ -456,52 +456,59 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 augroup filetype_html
-    " Clean out existing commands in the group
-    autocmd!
-    "Do not wrap HTML documents (local buffer only)
-    autocmd BufNewFile,BufRead *.html setlocal nowrap 
-    " Automatically indent HTML before saving
-    " Don't like intendation overhead (time) at every save
-    " autocmd BufWritePre *.html normal gg=G 
+	" Clean out existing commands in the group
+	autocmd!
+	"Do not wrap HTML documents (local buffer only)
+	autocmd BufNewFile,BufRead *.html setlocal nowrap 
+	" Automatically indent HTML before saving
+	" Don't like intendation overhead (time) at every save
+	" autocmd BufWritePre *.html normal gg=G 
 augroup END
 
 augroup filetype_python
-    autocmd!
-    "PEP-8, set 80 character limit on lines
-    autocmd FileType python set textwidth=79 
-    autocmd FileType python setlocal foldmethod=indent
-    " No tabs in the source file
-    " All tabs are 4 space characters
-    autocmd FileType python set tabstop=4
-    autocmd FileType python set shiftwidth=4
-    autocmd FileType python set softtabstop=4
-    " Use spaces, not tabs
-    autocmd FileType python set expandtab
+	autocmd!
+	"PEP-8, set 80 character limit on lines
+	autocmd FileType python set textwidth=79 
+	autocmd FileType python setlocal foldmethod=indent
+	" No tabs in the source file
+	" All tabs are 4 space characters
+	autocmd FileType python set tabstop=4
+	autocmd FileType python set shiftwidth=4
+	autocmd FileType python set softtabstop=4
+	" Use spaces, not tabs
+	autocmd FileType python set expandtab
 augroup END
 
 " Code folding for VimScript files
 augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim setlocal foldmarker={{{,}}}
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+	autocmd FileType vim setlocal foldmarker={{{,}}}
+	autocmd FileType go setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
 
 " Special stuff for Java files
 augroup filetype_java
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=syntax
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=syntax
 augroup END
 
 " Special tab-spacing for Ruby files
 augroup filetype_ruby
-    autocmd!
-    autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+	autocmd!
+	autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
+" Special tab-spacing stuff for Go files
+augroup filetype_go
+	autocmd!
+	autocmd FileType go setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
 
 " Special stuff for Rust
 augroup filetype_rust
-    autocmd!
-    autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
+	autocmd!
+	autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
 augroup END
 
 " }}}
@@ -521,7 +528,7 @@ set laststatus=2
 "
 " Airline stuffs from the customization documentation
 if !exists('g:airline_symbols')
-let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -549,26 +556,26 @@ let g:airline#extensions#tabline#enabled = 1
 " a number from 1-6 to highlight the current word in a specific color.
 
 function! HiInterestingWord(n) " {{{
-    " Save our location.
-    normal! mz
+	" Save our location.
+	normal! mz
 
-    " Yank the current word into the z register.
-    normal! "zyiw
+	" Yank the current word into the z register.
+	normal! "zyiw
 
-    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-    let mid = 86750 + a:n
+	" Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+	let mid = 86750 + a:n
 
-    " Clear existing matches, but don't worry if they don't exist.
-    silent! call matchdelete(mid)
+	" Clear existing matches, but don't worry if they don't exist.
+	silent! call matchdelete(mid)
 
-    " Construct a literal pattern that has to match at boundaries.
-    let pat = '\V\<' . escape(@z, '\') . '\>'
+	" Construct a literal pattern that has to match at boundaries.
+	let pat = '\V\<' . escape(@z, '\') . '\>'
 
-    " Actually match the words.
-    call matchadd("InterestingWord" . a:n, pat, 1, mid)
+	" Actually match the words.
+	call matchadd("InterestingWord" . a:n, pat, 1, mid)
 
-    " Move back to our original location.
-    normal! `z
+	" Move back to our original location.
+	normal! `z
 endfunction " }}}
 
 " Mappings {{{
@@ -613,81 +620,81 @@ hi User5 guifg=#002600  guibg=#67ab6e gui=italic
 " Automatically and intelligently complete brackets, quotes etc
 " You can modify this dictionary as you wish.
 let s:match = {'(': ')',
-            \'{': '}',
-            \'[': ']',
-            \'¡': '!',
-            \'¿': '?'}
+			\'{': '}',
+			\'[': ']',
+			\'¡': '!',
+			\'¿': '?'}
 " This list is for pairs in which the closing symbol is the same as the
 " opening one.
 let s:smatch = ["'", "\""]
 
 let s:alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-            \"n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-            \"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-            \"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+			\"n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+			\"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+			\"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 for [s:o, s:c] in items(s:match)
-    execute 'ino <silent> ' . s:o . " <C-R>=VracketOpen('" . s:o . "')<CR>"
-    execute 'ino <silent> ' . s:c . " <C-R>=VracketClose('" . s:o . "')<CR>"
+	execute 'ino <silent> ' . s:o . " <C-R>=VracketOpen('" . s:o . "')<CR>"
+	execute 'ino <silent> ' . s:c . " <C-R>=VracketClose('" . s:o . "')<CR>"
 endfor
 for s:b in s:smatch
-    execute 'ino <silent> ' . s:b . ' <C-R>=VracketBoth("\' . s:b . '")<CR>'
+	execute 'ino <silent> ' . s:b . ' <C-R>=VracketBoth("\' . s:b . '")<CR>'
 endfor
 inoremap <silent> <BS> <C-R>=VracketBackspace()<CR>
 
 function! VracketOpen(bracket)
-    let l:o = a:bracket
-    let l:c = s:match[l:o]
+	let l:o = a:bracket
+	let l:c = s:match[l:o]
 
-    return l:o . l:c . "\<Left>"
+	return l:o . l:c . "\<Left>"
 endfunction
 
 function! VracketClose(bracket)
-    let l:c = s:match[a:bracket]
+	let l:c = s:match[a:bracket]
 
-    if s:GetCharAt(0) == l:c
-        return "\<Right>"
-    endif
-    return l:c
+	if s:GetCharAt(0) == l:c
+		return "\<Right>"
+	endif
+	return l:c
 endfunction
 
 function! VracketBoth(bracket)
-    if s:GetCharAt(0) == a:bracket
-        return "\<Right>"
-    endif
-    if col('.') == 1
-        return a:bracket . a:bracket . "\<Left>"
-    endif
-    if s:GetCharAt(-1) == a:bracket || count(s:alpha, s:GetCharAt(-1)) == 1
-        return a:bracket
-    endif
-    return a:bracket . a:bracket . "\<Left>"
+	if s:GetCharAt(0) == a:bracket
+		return "\<Right>"
+	endif
+	if col('.') == 1
+		return a:bracket . a:bracket . "\<Left>"
+	endif
+	if s:GetCharAt(-1) == a:bracket || count(s:alpha, s:GetCharAt(-1)) == 1
+		return a:bracket
+	endif
+	return a:bracket . a:bracket . "\<Left>"
 endfunction
 
 function! VracketBackspace()
-    if col('.') == 1
-        return "\<BS>"
-    endif
+	if col('.') == 1
+		return "\<BS>"
+	endif
 
-    if get(s:match, s:GetCharAt(-1), '  ') == s:GetCharAt(0)
-        return "\<Esc>\"_2s"
-    endif
+	if get(s:match, s:GetCharAt(-1), '  ') == s:GetCharAt(0)
+		return "\<Esc>\"_2s"
+	endif
 
-    if count(s:smatch, s:GetCharAt(0)) == 1 && s:GetCharAt(-1) == s:GetCharAt(0)
-        return "\<Esc>\"_2s"
-    endif
-    return "\<BS>"
+	if count(s:smatch, s:GetCharAt(0)) == 1 && s:GetCharAt(-1) == s:GetCharAt(0)
+		return "\<Esc>\"_2s"
+	endif
+	return "\<BS>"
 endfunction
 
 function! s:GetCharAt(pos)
-    let l:line = split(getline('.'), '\zs')
-    let l:pos = s:Column() + a:pos
-    if l:pos < 0 || l:pos >= len(l:line)
-        return ''
-    else
-        return l:line[l:pos]
-    endif
+	let l:line = split(getline('.'), '\zs')
+	let l:pos = s:Column() + a:pos
+	if l:pos < 0 || l:pos >= len(l:line)
+		return ''
+	else
+		return l:line[l:pos]
+	endif
 endfunction
 
 function! s:Column()
-    return col('.') > 1 ? strchars(getline(line('.'))[:col('.') - 2]) : 0
+	return col('.') > 1 ? strchars(getline(line('.'))[:col('.') - 2]) : 0
 endfunction
