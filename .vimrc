@@ -383,6 +383,7 @@ augroup commenting
 	autocmd filetype scala nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype rust nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype javascript nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype processing nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
@@ -406,6 +407,7 @@ augroup uncommenting
 	autocmd filetype scala nnoremap <buffer> <leader>u ^3x
 	autocmd filetype rust nnoremap <buffer> <leader>u ^3x
 	autocmd filetype javascript nnoremap <buffer> <leader>u ^3x
+	autocmd filetype processing nnoremap <buffer> <leader>u ^3x
 	autocmd filetype c nnoremap <buffer> <leader>u ^3x
 	autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
 	autocmd filetype cs nnoremap <buffer> <leader>u ^3x
