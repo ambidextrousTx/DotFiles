@@ -13,7 +13,7 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="ambidextrous"
 #
 # Experimenting with random themes
-ZSH_THEME="avit"
+ZSH_THEME="aussiegeek"
 
 # ZSH_THEME="random"
 
@@ -135,3 +135,6 @@ export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin/
 
 # Ambidextrous: Tapkee executables
 export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin/
+
+# Ambidextrous: Ruby specific
+export RI="--format ansi --width 70"
