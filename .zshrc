@@ -138,3 +138,6 @@ export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin/
 
 # Ambidextrous: Ruby specific
 export RI="--format ansi --width 70"
+
+# Ambidextrous: OS X specific system utilities
+alias ssid='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep SSID'
