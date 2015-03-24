@@ -86,6 +86,8 @@ endif
 set t_Co=256
 
 " Filetype detection and behavior adjustment
+" Not sure why I had to do this specifically for Golang
+" TODO: check back later if this is needed
 if has("autocmd")
 	filetype off
 	filetype plugin indent off
@@ -123,6 +125,7 @@ set splitright
 set backspace=indent,eol,start
 
 " Autosave on losing focus (always save) - Steve Losh
+" Not tested
 au FocusLost * :wa
 
 " Keep search matches in the middle of the window - Steve Losh
@@ -150,7 +153,7 @@ set undolevels=9999
 " Don't autocomplete some file names (don't need to open them)
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
-" Clearing out the results of a search
+" Clearing out the results of a search easily
 nnoremap <leader><space> :noh<CR>
 
 " When opening a file, do not fold blocks
@@ -195,6 +198,7 @@ nnoremap <leader>sr :call SetRelativeNumber()<CR>
 nnoremap <leader>sn :call SetNumber()<CR>
 
 " Functions to toggle between number and nonumber
+" These two functions could probably be in-lined
 function! SetNumber()
 	set number!                                 
 endfunction
@@ -213,9 +217,9 @@ endfunction
 " Cannot use it if it's code and the commenting shortcut is set
 nnoremap <leader>c :call CapitalizeCenterAndMoveDown()<CR>
 function! CapitalizeCenterAndMoveDown()
-	s/\<./\u&/g "Built-in substitution capitalizes every word
-	center	"Built-in center command centers entire line
-	+1	"Built-in relative motion (+1 line down)
+	s/\<./\u&/g 	"Built-in substitution capitalizes every word
+	center		"Built-in center command centers entire line
+	+1		"Built-in relative motion (+1 line down)
 endfunction
 
 " From Andrew Burgess/ Gary Bernhardt- open the URL under
@@ -228,9 +232,9 @@ function! OpenUrlUnderCursor()
 endfunction
 
 map <leader>o :call OpenUrlUnderCursor()<CR>
-" }}} "
+" }}} 
 " Navigation {{{
-" Moving lines up and down
+" Moving lines up and down easily with a single keypress
 nnoremap _ ddkP
 nnoremap - ddp
 
@@ -246,8 +250,8 @@ nnoremap <C-l> <C-w>l
 " Tip from Damian Conway
 nnoremap ; :
 
-" Since I do this so often, making it permanent
 " Recording progress during pomodoros
+" Since I do this so often, making it permanent
 nnoremap <leader>pr A▶<ESC>0
 
 " Copy and paste between different Tmux panes running Vim
@@ -267,7 +271,7 @@ xnoremap . :normal .<CR>
 " (easier to type, though the same number of keystrokes)
 nnoremap <leader>fl ^~
 
-" Insert checkmark
+" Insert checkmark using the Unicode codepoint
 nnoremap <leader>ch i<C-v>u2713<Esc>
 
 " Easy search and replace for the file or a selection
@@ -333,7 +337,6 @@ inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 " Remap H and L, not using the traditional meanings anyway
 nnoremap H ^
 nnoremap L $
-
 " }}}
 " My own matching and highlighting rules {{{
 " Make Vim jump between < and > upon pressing % (augment the default)
@@ -342,6 +345,7 @@ set matchpairs+=<:>
 nnoremap <leader>h :call HighlightTODOs()<CR>
 
 " Making this a function; apparently some colorschemes override this
+" No way to undo this highlighting right now
 function! HighlightTODOs()
 	highlight MyGroup ctermbg=red guibg=red ctermfg=yellow guifg=yellow term=bold
 	match MyGroup /^TODO/
@@ -482,6 +486,7 @@ augroup filetype_python
 augroup END
 
 " Code folding for VimScript files
+" Not sure why the foldmethod isn't set to marker
 augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
@@ -512,7 +517,6 @@ augroup filetype_rust
 	autocmd!
 	autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
 augroup END
-
 " }}}
 " {{{ Status bar
 " Part from the official Vim page
@@ -543,6 +547,8 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline#extensions#tabline#enabled = 1
 " }}}
+
+
 " --- not working yet / still creating ---
 
 " Highlighting different words using different colors
