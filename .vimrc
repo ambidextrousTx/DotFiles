@@ -19,7 +19,7 @@
 execute pathogen#infect()
 " Supposed to automatically update Vim's helptags
 execute pathogen#helptags()
-filetype plugin indent on 
+filetype plugin indent on
 " }}}
 " Initialization stuff {{{
 set nocompatible	" No compatibility with legacy vi
@@ -32,7 +32,7 @@ set encoding=utf-8
 " set fileformats=unix,mac,dos
 if has("mac")
 	set fileformat=mac
-else 
+else
 	if has("unix")
 		set fileformat=unix
 	else
@@ -48,7 +48,7 @@ let mapleader = ","
 set cpoptions+=$
 
 " Set a vertical line at column 80 for visual aid for longer code lines
-" Turn off by default; can be toggled with shortcuts C0 and C1 
+" Turn off by default; can be toggled with shortcuts C0 and C1
 " Other tools like syntastic will highlight when a line is >= 80 cols
 " set colorcolumn=80
 
@@ -99,7 +99,7 @@ endif
 
 " }}}
 " Basics, one liners {{{
-" 
+"
 " Interesting feature; keeping some context offset around when scrolling
 set scrolloff=5
 "
@@ -115,7 +115,7 @@ set incsearch
 " Does not work with list on (for displaying the special characters)
 set linebreak " Don't break words on line warp
 " Like the idea of linebreaks showing explicitly
-set showbreak=>\ 
+set showbreak=>\
 
 " Split to the bottom and right by default
 set splitbelow
@@ -145,7 +145,7 @@ set cursorline
 set showmatch
 set matchtime=1
 
-" History and undo levels 
+" History and undo levels
 " Bumping up to 9,999; this isn't 1990s anymore, can use extra memory
 set history=9999
 set undolevels=9999
@@ -169,7 +169,7 @@ set wildmenu
 set wildmode=longest,list " Shell-style autocomplete
 
 " Don't need man page brought up
-nnoremap K <nop> 
+nnoremap K <nop>
 
 " Using spelling suggestions a bit easily
 " Needs spell set
@@ -200,11 +200,11 @@ nnoremap <leader>sn :call SetNumber()<CR>
 " Functions to toggle between number and nonumber
 " These two functions could probably be in-lined
 function! SetNumber()
-	set number!                                 
+	set number!
 endfunction
 
 function! SetRelativeNumber()
-	set relativenumber!                         
+	set relativenumber!
 endfunction
 
 " My very first Vim function
@@ -232,7 +232,7 @@ function! OpenUrlUnderCursor()
 endfunction
 
 map <leader>o :call OpenUrlUnderCursor()<CR>
-" }}} 
+" }}}
 " Navigation {{{
 " Moving lines up and down easily with a single keypress
 nnoremap _ ddkP
@@ -259,7 +259,7 @@ nnoremap <leader>pr A▶<ESC>0
 vnoremap <leader>CB :w! ~/.vimbuffer<CR>
 nnoremap <leader>PB :r ~/.vimbuffer<CR>
 "
-" Easier tab management 
+" Easier tab management
 nnoremap <leader>Tf :tabfirst<CR>
 nnoremap <leader>Tm :tabmove<CR>
 nnoremap <leader>Tl :tablast<CR>
@@ -267,7 +267,7 @@ nnoremap <leader>Tl :tablast<CR>
 " Easily repeat normal command over a visual block
 xnoremap . :normal .<CR>
 
-" Easily toggle the first letter on a line between capital and small 
+" Easily toggle the first letter on a line between capital and small
 " (easier to type, though the same number of keystrokes)
 nnoremap <leader>fl ^~
 
@@ -351,7 +351,7 @@ function! HighlightTODOs()
 	match MyGroup /^TODO/
 endfunction
 " }}}
-" Mappings for running things {{{ 
+" Mappings for running things {{{
 " Running things in Python
 nnoremap <leader>pn :sp ./project-notes.txt<CR>
 nnoremap <leader>rp :!python %<CR>
@@ -390,18 +390,19 @@ augroup commenting
 	autocmd filetype processing nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype c nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype cpp nnoremap <buffer> <leader>c I// <ESC>
+	autocmd filetype go nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype cs nnoremap <buffer> <leader>c I// <ESC>
 	autocmd filetype tex nnoremap <buffer> <leader>c I% <ESC>
 	autocmd filetype sml nnoremap <buffer> <leader>c I(*<SPACE><SPACE><ESC>xA<SPACE>*)<ESC>0
 	autocmd filetype html nnoremap <buffer> <leader>c I<!--<ESC>A--><ESC>
-	" Add more filetypes as needed  
+	" Add more filetypes as needed
 augroup END
 
 " Uncommenting - preferable for blocks
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
 
-" Better uncommenting 
+" Better uncommenting
 augroup uncommenting
 	autocmd!
 	autocmd filetype python nnoremap <buffer> <leader>u ^2x
@@ -414,6 +415,7 @@ augroup uncommenting
 	autocmd filetype processing nnoremap <buffer> <leader>u ^3x
 	autocmd filetype c nnoremap <buffer> <leader>u ^3x
 	autocmd filetype cpp nnoremap <buffer> <leader>u ^3x
+	autocmd filetype go nnoremap <buffer> <leader>u ^3x
 	autocmd filetype cs nnoremap <buffer> <leader>u ^3x
 	autocmd filetype tex nnoremap <buffer> <leader>u ^2x
 	autocmd filetype sml nnoremap <buffer> <leader>u ^3xA<BS><BS><BS><ESC>0
@@ -449,9 +451,9 @@ cnoreabbrev C0 set colorcolumn=0
 cnoreabbrev C1 set colorcolumn=80
 " }}}
 " Autocmds {{{
-" Sourcing your $MYVIMRC makes Vim read your autocmds again, 
-" and it has no way of knowing whether it's a duplicate. 
-" That makes Vim run slower because it 
+" Sourcing your $MYVIMRC makes Vim read your autocmds again,
+" and it has no way of knowing whether it's a duplicate.
+" That makes Vim run slower because it
 " executes the same commands over and over; grouping prevents that
 " Event, Pattern, Command
 
@@ -465,16 +467,16 @@ augroup filetype_html
 	" Clean out existing commands in the group
 	autocmd!
 	"Do not wrap HTML documents (local buffer only)
-	autocmd BufNewFile,BufRead *.html setlocal nowrap 
+	autocmd BufNewFile,BufRead *.html setlocal nowrap
 	" Automatically indent HTML before saving
 	" Don't like intendation overhead (time) at every save
-	" autocmd BufWritePre *.html normal gg=G 
+	" autocmd BufWritePre *.html normal gg=G
 augroup END
 
 augroup filetype_python
 	autocmd!
 	"PEP-8, set 80 character limit on lines
-	autocmd FileType python set textwidth=79 
+	autocmd FileType python set textwidth=79
 	autocmd FileType python setlocal foldmethod=indent
 	" No tabs in the source file
 	" All tabs are 4 space characters
@@ -517,6 +519,7 @@ augroup filetype_rust
 	autocmd!
 	autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
 augroup END
+
 " }}}
 " {{{ Status bar
 " Part from the official Vim page
@@ -525,12 +528,12 @@ augroup END
 " Currently commented out in favor of airline-vim #Ambidextrous, Aug 11, 2014
 set laststatus=2
 " set statusline=
-" set statusline+=%1*%40F]\ 
-" set statusline+=%3*\ [%{&fenc!=''?&fenc:&enc}]\ 
-" set statusline+=%1*\ [%Y]\ 
-" set statusline+=%4*\ [%05l/%05L:%03c]\ 
-" set statusline+=%1*\ [%-16{strftime(\"%Y-%m-%d\ %H:%M\")}]\ 
-" set statusline+=%5*\ [%pPC]\ 
+" set statusline+=%1*%40F]\
+" set statusline+=%3*\ [%{&fenc!=''?&fenc:&enc}]\
+" set statusline+=%1*\ [%Y]\
+" set statusline+=%4*\ [%05l/%05L:%03c]\
+" set statusline+=%1*\ [%-16{strftime(\"%Y-%m-%d\ %H:%M\")}]\
+" set statusline+=%5*\ [%pPC]\
 "
 " Airline stuffs from the customization documentation
 if !exists('g:airline_symbols')
