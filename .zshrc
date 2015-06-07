@@ -132,6 +132,7 @@ export PATH=$PATH:/Users/ambidextrous/Coding/DataScienceCLI/data-science-at-the-
 # Ambidextrous: For third party Go libraries/ binaries
 export GOPATH=/Users/ambidextrous/Coding/GoLang/lib
 export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin/
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Ambidextrous: Tapkee executables
 export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin/
