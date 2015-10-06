@@ -146,3 +146,6 @@ alias tunnel2cadmius="ssh -L 5901:127.0.0.1:5901 -N -f -l ravisinha Cadmius.loca
 
 # Ambidextrous: for the new Theano through a different channel
 export DYLD_FALLBACK_LIBRARY_PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/lib:$DYLD_FALLBACK_LIBRARY_PATH
+
+# Ambidextrous: shortcut to code-maat from Adam Tornhill
+alias maat='java -jar target/code-maat-0.9.2-SNAPSHOT-standalone.jar'
