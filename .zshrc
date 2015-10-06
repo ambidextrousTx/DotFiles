@@ -143,3 +143,6 @@ export RI="--format ansi --width 70"
 # Ambidextrous: OS X specific system utilities
 alias ssid='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep SSID'
 alias tunnel2cadmius="ssh -L 5901:127.0.0.1:5901 -N -f -l ravisinha Cadmius.local"
+
+# Ambidextrous: for the new Theano through a different channel
+export DYLD_FALLBACK_LIBRARY_PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/lib:$DYLD_FALLBACK_LIBRARY_PATH
