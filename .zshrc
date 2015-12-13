@@ -65,10 +65,10 @@ set -o noclobber
 function cl {
     ls='ls -a'
     cd $1
-    eval $ls 
+    eval $ls
 }
 
-# 'Discover' something within the text of the files in 
+# 'Discover' something within the text of the files in
 # a directory structure and color-print it
 function disc {
     cmd='find . * | xargs egrep --color=always $1'
@@ -79,6 +79,13 @@ function disc {
 # matches the string case-insensitively?
 function isthere {
     cmd='ls | egrep -i $1'
+    eval $cmd
+}
+
+# Ambidextrous - convert a man page into PostScript and view it in Preview
+# Works only on Mac OS X
+function niceman {
+    cmd='man -t $1 | open -fa Preview'
     eval $cmd
 }
 
