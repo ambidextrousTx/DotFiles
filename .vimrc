@@ -56,7 +56,7 @@ set cpoptions+=$
 " Colors work for badwolf and some other schemes (NonText and SpecialKey)
 " Does not work when word wrap is set and vice versa
 set list
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 
 nnoremap <leader>l :set list!<CR>
 
@@ -112,6 +112,12 @@ set nopaste
 set showcmd " Show the number of selected lines, characters etc.
 set hlsearch
 set incsearch
+
+" Ignore case for searches with /, ?, n, N, :g, and :s unless a capital letter
+" is used
+set ignorecase
+set smartcase
+
 " Does not work with list on (for displaying the special characters)
 set linebreak " Don't break words on line warp
 " Like the idea of linebreaks showing explicitly
@@ -237,6 +243,11 @@ map <leader>o :call OpenUrlUnderCursor()<CR>
 " Moving lines up and down easily with a single keypress
 nnoremap _ ddkP
 nnoremap - ddp
+
+" Moving multiple lines up and down easily with a single keypress
+" Courtesy of jgwhite on Github
+vmap _ xkP`[V`]
+vmap - xp`[V`]
 
 " Easy window navigation
 nnoremap <C-h> <C-w>h
