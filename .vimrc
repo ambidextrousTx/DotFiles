@@ -23,6 +23,9 @@ filetype plugin indent on
 " }}}
 " Initialization stuff {{{
 set nocompatible	" No compatibility with legacy vi
+set ttyfast
+set autowrite		" Automatically write to file when the buffer changes
+set autoread		" Automatically read the changes when the file changes
 
 " UTF-8 all the things
 set encoding=utf-8
@@ -223,7 +226,7 @@ endfunction
 " Cannot use it if it's code and the commenting shortcut is set
 nnoremap <leader>c :call CapitalizeCenterAndMoveDown()<CR>
 function! CapitalizeCenterAndMoveDown()
-	s/\<./\u&/g 	"Built-in substitution capitalizes every word
+	s/\<./\u&/g	"Built-in substitution capitalizes every word
 	center		"Built-in center command centers entire line
 	+1		"Built-in relative motion (+1 line down)
 endfunction
