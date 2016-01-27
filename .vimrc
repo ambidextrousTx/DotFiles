@@ -134,8 +134,10 @@ set splitright
 set backspace=indent,eol,start
 
 " Autosave on losing focus (always save) - Steve Losh
-" Not tested
 au FocusLost * :wa
+
+" Auto-resize splits when the window is resized
+au VimResized * :wincmd =
 
 " Keep search matches in the middle of the window - Steve Losh
 nnoremap n nzzzv
