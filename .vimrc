@@ -162,7 +162,19 @@ set history=9999
 set undolevels=9999
 
 " Don't autocomplete some file names (don't need to open them)
-set wildignore=*.swp,*.bak,*.pyc,*.class
+" Additions made courtesy of Steve Losh
+set wildignore=*.swp,*.bak,*.class
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX Thumbs.db
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=migrations                       " Django migrations
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig                           " Merge resolution files
 
 " Clearing out the results of a search easily
 nnoremap <leader><space> :noh<CR>
