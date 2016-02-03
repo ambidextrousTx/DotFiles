@@ -133,6 +133,10 @@ set splitright
 " Allow backspacing in insert mode
 set backspace=indent,eol,start
 
+" Formatting options
+" Courtesy Steve Losh
+set formatoptions=qrn1j
+
 " Autosave on losing focus (always save) - Steve Losh
 au FocusLost * :wa
 
