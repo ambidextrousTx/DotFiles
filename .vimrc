@@ -135,7 +135,7 @@ set backspace=indent,eol,start
 
 " Formatting options
 " Courtesy Steve Losh
-set formatoptions=qrn1j
+set formatoptions=qrn1
 
 " Autosave on losing focus (always save) - Steve Losh
 au FocusLost * :wa
@@ -281,6 +281,11 @@ nnoremap <C-l> <C-w>l
 " Really not using ; and this saves an additional shift press
 " Tip from Damian Conway
 nnoremap ; :
+
+" Really not using <CR>'s natural behavior in normal mode, so
+" why not use it to insert blank lines
+" Tip from Steve Losh
+nnoremap <CR> o<ESC>
 
 " Recording progress during pomodoros
 " Since I do this so often, making it permanent
