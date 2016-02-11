@@ -374,6 +374,11 @@ inoremap <silent> <C-D>t <C-R>=strftime("%l:%M %p")<CR>
 " Remap H and L, not using the traditional meanings anyway
 nnoremap H ^
 nnoremap L $
+
+" Rebuild and redraw ctags
+" Courtesy Steve Losh
+" Rebuild Ctags (mnemonic RC -> CR -> <cr>)
+nnoremap <leader><cr> :silent !myctags >/dev/null 2>&1 &<cr>:redraw!<cr>
 " }}}
 " My own matching and highlighting rules {{{
 " Make Vim jump between < and > upon pressing % (augment the default)
