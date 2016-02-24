@@ -287,6 +287,11 @@ nnoremap ; :
 " Tip from Steve Losh
 nnoremap <CR> o<ESC>
 
+" Keep the cursor in place when joining lines. Do not use the z register
+" for anything else
+" Tip from Steve Losh
+nnoremap J mzJ`z
+
 " Recording progress during pomodoros
 " Since I do this so often, making it permanent
 nnoremap <leader>pr A▶<ESC>0
