@@ -292,6 +292,9 @@ nnoremap <CR> o<ESC>
 " Tip from Steve Losh
 nnoremap J mzJ`z
 
+" Sudo to write changes to 'those' files
+cnoremap w!! w !sudo tee % > /dev/null
+
 " Recording progress during pomodoros
 " Since I do this so often, making it permanent
 nnoremap <leader>pr A▶<ESC>0
