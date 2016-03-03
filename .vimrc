@@ -558,6 +558,18 @@ augroup filetype_ruby
 	autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
+" Special tab-spacing for C files
+augroup filetype_c
+	autocmd!
+	autocmd FileType c setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+augroup END
+
+" Special tab-spacing for CPP files
+augroup filetype_cpp
+	autocmd!
+	autocmd FileType cpp setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+augroup END
+
 " Special tab-spacing stuff for Go files
 augroup filetype_go
 	autocmd!
