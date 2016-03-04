@@ -338,6 +338,10 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" Make it easier to similarly edit other config files
+nnoremap <leader>ez :vsplit ~/.zshrc<CR>
+nnoremap <leader>et :vsplit ~/.tmux.conf<CR>
+
 " Since :w mostly becomes :W when done manually
 nnoremap <leader>w :w<CR>
 
@@ -570,6 +574,8 @@ augroup END
 augroup filetype_cpp
 	autocmd!
 	autocmd FileType cpp setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+	" Append more include locations down here
+	autocmd FileType cpp let &path.="/usr/local/include,"
 augroup END
 
 " Special tab-spacing stuff for Go files
