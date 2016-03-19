@@ -568,12 +568,16 @@ augroup END
 augroup filetype_c
 	autocmd!
 	autocmd FileType c setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+	autocmd FileType c setlocal foldmethod=marker
+	autocmd FileType c setlocal foldmarker={,}
 augroup END
 
 " Special tab-spacing for CPP files
 augroup filetype_cpp
 	autocmd!
 	autocmd FileType cpp setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+	autocmd FileType c setlocal foldmethod=marker
+	autocmd FileType c setlocal foldmarker={,}
 	" Append more include locations down here
 	autocmd FileType cpp let &path.="/usr/local/include,"
 augroup END
