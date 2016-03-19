@@ -22,6 +22,29 @@ execute pathogen#helptags()
 filetype plugin indent on
 " }}}
 " Initialization stuff {{{
+" Keeping the syntax on stuff at the top because Vim was losing syntax
+" highlighting very frequently
+syntax on
+if has("gui_running")
+	colorscheme badwolf
+	" GUI font, labels on tabs
+	if has("mac")
+		set guifont=Source\ Code\ Pro:h13
+	else
+		set guifont=Source\ Code\ Pro\ 13
+	endif
+	set guitablabel=%N\ %t
+	" Setting spelling only when the GUI is running
+	set spell
+	" Autmatically change dirs upon opening
+	" Only needed/ works for GUI
+	set autochdir
+
+	" In MacVim, disable some menu options that are unpleasing to the eye
+	set go-=T
+else
+	colorscheme default
+endif
 set nocompatible	" No compatibility with legacy vi
 set ttyfast
 set autowrite		" Automatically write to file when the buffer changes
@@ -65,27 +88,6 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 
 nnoremap <leader>l :set list!<CR>
 
-syntax on
-if has("gui_running")
-	colorscheme badwolf
-	" GUI font, labels on tabs
-	if has("mac")
-		set guifont=Source\ Code\ Pro:h13
-	else
-		set guifont=Source\ Code\ Pro\ 13
-	endif
-	set guitablabel=%N\ %t
-	" Setting spelling only when the GUI is running
-	set spell
-	" Autmatically change dirs upon opening
-	" Only needed/ works for GUI
-	set autochdir
-
-	" In MacVim, disable some menu options that are unpleasing to the eye
-	set go-=T
-else
-	colorscheme default
-endif
 
 " 256-colors
 set t_Co=256
