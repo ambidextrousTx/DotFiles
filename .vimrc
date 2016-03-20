@@ -26,7 +26,7 @@ filetype plugin indent on
 " highlighting very frequently
 syntax on
 if has("gui_running")
-	colorscheme badwolf
+	colorscheme maui
 	" GUI font, labels on tabs
 	if has("mac")
 		set guifont=Source\ Code\ Pro:h13
