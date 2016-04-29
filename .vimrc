@@ -536,6 +536,8 @@ augroup filetype_python
 	"PEP-8, set 80 character limit on lines
 	autocmd FileType python set textwidth=79
 	autocmd FileType python setlocal foldmethod=indent
+	autocmd BufWinEnter *.py setlocal foldexpr=SimplyFold(v:lnum) foldmethod=expr
+	autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 	" No tabs in the source file
 	" All tabs are 4 space characters
 	autocmd FileType python set tabstop=4
@@ -582,6 +584,7 @@ augroup filetype_cpp
 	autocmd FileType c setlocal foldmarker={,}
 	" Append more include locations down here
 	autocmd FileType cpp let &path.="/usr/local/include,"
+	autocmd FileType cpp nnoremap <leader>X Istd::<ESC>
 augroup END
 
 " Special tab-spacing stuff for Go files
