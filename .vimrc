@@ -303,6 +303,9 @@ cnoremap w!! w !sudo tee % > /dev/null
 " Since I do this so often, making it permanent
 nnoremap <leader>pr A▶<ESC>0
 
+" Insert the => used frequently in Ruby or elsewhere
+inoremap <c-l> =>
+
 " Copy and paste between different Tmux panes running Vim
 " Only visual mode for now for copying
 vnoremap <leader>CB :w! ~/.vimbuffer<CR>
