@@ -144,6 +144,9 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # Ambidextrous: Tapkee executables
 export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin/
 
+# Ambidextrous: The latest PHP brewed from Homebrew
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+
 # Ambidextrous: Ruby specific
 export RI="--format ansi --width 70"
 
