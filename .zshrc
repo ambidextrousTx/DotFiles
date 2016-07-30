@@ -118,7 +118,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 # Ambidextrous: putting Macports Python version at the beginning so that pyrg works
-export PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/go/bin
+export PATH=/Users/ambidextrous/Coding/Python/Anaconda2/bin:/Users/ambidextrous/Coding/Python/Anaconda3/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/go/bin
 
 # Ambidextrous: use MacVim for Vmail instead of the terminal Vim
 export PATH=/Applications/MacVim-snapshot-73:$PATH
@@ -152,7 +152,11 @@ alias ssid='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curr
 alias tunnel2cadmius="ssh -L 5901:127.0.0.1:5901 -N -f -l ravisinha Cadmius.local"
 
 # Ambidextrous: for the new Theano through a different channel
-export DYLD_FALLBACK_LIBRARY_PATH=/Users/ambidextrous/Coding/Python/Anaconda/Install/lib:$DYLD_FALLBACK_LIBRARY_PATH
+export DYLD_FALLBACK_LIBRARY_PATH=/Users/ambidextrous/Coding/Python/Anaconda2/lib:/Users/ambidextrous/Coding/Python/Anaconda3/lib:$DYLD_FALLBACK_LIBRARY_PATH
 
 # Ambidextrous: shortcut to code-maat from Adam Tornhill
 alias maat='java -jar target/code-maat-0.9.2-SNAPSHOT-standalone.jar'
+
+# Ambidextrous: added from the Pro Vim book courtesy of Mark McDonnell
+export GREP_OPTIONS='--color=auto'
+export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
