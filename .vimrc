@@ -383,8 +383,12 @@ nnoremap <leader>xw dWelp
 nnoremap <leader>bl :set background=light<CR>
 nnoremap <leader>bd :set background=dark<CR>
 
-nnoremap <Space> <PageDown>
-nnoremap <Tab> <PageUp>
+" Removing these because hitting <Space> when you meant <leader><Space>
+" is annoying as it takes you half a page down when you don't want.
+" These aren't needed anyway because I could always use <Ctrl> D and U
+" nnoremap <Space> <PageDown>
+
+" nnoremap <Tab> <PageUp>
 " Insert current date
 inoremap <silent> <C-D>d <C-R>=strftime("%e %b %Y")<CR>
 " Insert current time
