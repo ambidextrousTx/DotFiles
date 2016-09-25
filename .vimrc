@@ -73,6 +73,11 @@ let mapleader = ","
 " From Derek Wyatt's videos, for end of current word changing
 set cpoptions+=$
 
+" Everything from the unnamed register also goes to the system clipboard
+" so that content taken from one Vim instance can be pasted into another
+" completely different Vim instance
+set clipboard+=unnamed
+
 " Set a vertical line at column 80 for visual aid for longer code lines
 " Can be toggled with shortcuts C0 and C1
 " Other tools like syntastic will highlight when a line is >= 80 cols
