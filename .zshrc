@@ -127,22 +127,22 @@ export VMAIL_VIM=mvim
 # Ambidextrous: updating path to include npm-installed binaries
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/share/npm/lib/node_modules:$PATH
-export PATH=/usr/local/lib/node_modules/:$PATH
+export PATH=/usr/local/lib/node_modules:$PATH
 
 # Ambidextrous: Because ./ is annoying and inelegant
 export PATH=$PATH:.
 
 # Ambidextrous: Adding all the tools supplied with the Data Science
 # at the Command Line book
-export PATH=$PATH:/Users/ambidextrous/Coding/DataScienceCLI/data-science-at-the-command-line/tools/
+export PATH=$PATH:/Users/ambidextrous/Coding/DataScienceCLI/data-science-at-the-command-line/tools
 
 # Ambidextrous: For third party Go libraries/ binaries
 export GOPATH=/Users/ambidextrous/Coding/GoLang/lib
-export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin/
+export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Ambidextrous: Tapkee executables
-export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin/
+export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
 
 # Ambidextrous: The latest PHP brewed from Homebrew
 export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
