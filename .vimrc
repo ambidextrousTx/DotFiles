@@ -547,6 +547,17 @@ augroup filetype_html
 	" autocmd BufWritePre *.html normal gg=G
 augroup END
 
+augroup filetype_lua
+	autocmd!
+	autocmd FileType lua setlocal textwidth=79
+	autocmd FileType lua setlocal foldmethod=syntax
+	autocmd FileType lua setlocal tabstop=4
+	autocmd FileType lua setlocal shiftwidth=4
+	autocmd FileType lua setlocal softtabstop=4
+	autocmd FileType lua setlocal expandtab
+
+augroup END
+
 augroup filetype_python
 	autocmd!
 	"PEP-8, set 80 character limit on lines
