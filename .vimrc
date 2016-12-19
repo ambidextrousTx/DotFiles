@@ -446,10 +446,12 @@ nnoremap <leader>rg :!go run %<CR>
 " Commenting - preferable for blocks
 vnoremap <leader># :norm I# <CR>
 vnoremap <leader>/ :norm I// <CR>
+vnoremap <leader>- :norm I-- <CR>
 
 " Better commenting
 augroup commenting
 	autocmd!
+	autocmd filetype lua nnoremap <buffer> <leader>c I-- <ESC>
 	autocmd filetype python nnoremap <buffer> <leader>c I# <ESC>
 	autocmd filetype ruby nnoremap <buffer> <leader>c I# <ESC>
 	autocmd filetype perl nnoremap <buffer> <leader>c I# <ESC>
@@ -471,10 +473,12 @@ augroup END
 " Uncommenting - preferable for blocks
 vnoremap <leader>n# :norm ^2x<CR>
 vnoremap <leader>n/ :norm ^3x<CR>
+vnoremap <leader>n- :norm ^2x<CR>
 
 " Better uncommenting
 augroup uncommenting
 	autocmd!
+	autocmd filetype lua nnoremap <buffer> <leader>u ^2x
 	autocmd filetype python nnoremap <buffer> <leader>u ^2x
 	autocmd filetype ruby nnoremap <buffer> <leader>u ^2x
 	autocmd filetype perl nnoremap <buffer> <leader>u ^2x
