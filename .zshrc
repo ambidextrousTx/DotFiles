@@ -147,6 +147,9 @@ export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
 # Ambidextrous: The latest PHP brewed from Homebrew
 export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 
+# Ambidextrous: Path to Factor
+export PATH=/Applications/factor:$PATH
+
 # Ambidextrous: Ruby specific
 export RI="--format ansi --width 70"
 
