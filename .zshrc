@@ -54,7 +54,8 @@ alias tl='tmux ls'
 alias tn='tmux new -s'
 
 # Ambidextrous - Scala REPL has colors starting from 2.11.4
-alias scala='scala -Dscala.color'
+# Apparently the new Scala versions do this by default and this thing doesn't work anymore
+#alias scala='scala -Dscala.color'
 
 # Ambidextrous - Useful shell options
 # Do not overwrite a file through stdout redirect if file exists
