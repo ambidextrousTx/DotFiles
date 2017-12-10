@@ -66,6 +66,8 @@ else
 	endif
 endif
 
+" Enable undo persistence between sessions
+set undofile"
 
 " Leader key
 let mapleader = ","
