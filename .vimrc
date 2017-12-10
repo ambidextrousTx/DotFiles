@@ -67,6 +67,7 @@ else
 endif
 
 " Enable undo persistence between sessions
+set undodir=~/.vim/undo
 set undofile"
 
 " Leader key
