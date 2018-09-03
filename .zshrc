@@ -145,8 +145,8 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # Ambidextrous: Tapkee executables
 export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
 
-# Ambidextrous: The latest PHP brewed from Homebrew
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+# Ambidextrous: Homebrew puts stuff in /usr/local/sbin too
+export PATH="/usr/local/sbin:$PATH"
 
 # Ambidextrous: Path to Factor
 export PATH=/Applications/factor:$PATH
