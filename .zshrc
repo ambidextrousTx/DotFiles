@@ -24,7 +24,6 @@ ZSH_THEME="aussiegeek"
 # Ambidextrous - useful aliases
 alias ls='ls -a'
 alias lit='ssh ravi@lit09.csci.unt.edu'
-alias clj='/Users/ambidextrous/Coding/Clojure/clj'
 alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
