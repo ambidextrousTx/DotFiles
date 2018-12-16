@@ -33,7 +33,9 @@ if has("gui_running")
 	else
 		set guifont=Source\ Code\ Pro\ 13
 	endif
-	set guitablabel=%N\ %t
+	set showtabline=2
+	set guitablabel=%{GuiTabLabel()}
+	set guitabtooltip=%{GuiTabToolTip()}
 	" Setting spelling only when the GUI is running
 	set spell
 	" Autmatically change dirs upon opening
@@ -261,6 +263,69 @@ function! CapitalizeCenterAndMoveDown()
 	+1		"Built-in relative motion (+1 line down)
 endfunction
 
+" From the Vim wiki - displaying tab labels correctly
+function! GuiTabLabel()
+  let label = ''
+  let bufnrlist = tabpagebuflist(v:lnum)
+  " Add '+' if one of the buffers in the tab page is modified
+  for bufnr in bufnrlist
+    if getbufvar(bufnr, "&modified")
+      let label = '+'
+      break
+    endif
+  endfor
+  " Append the tab number
+  let label .= v:lnum.': '
+  " Append the buffer name
+  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
+  if name == ''
+    " give a name to no-name documents
+    if &buftype=='quickfix'
+      let name = '[Quickfix List]'
+    else
+      let name = '[No Name]'
+    endif
+  else
+    " get only the file name
+    let name = fnamemodify(name,":t")
+  endif
+  let label .= name
+  " Append the number of windows in the tab page
+  let wincount = tabpagewinnr(v:lnum, '$')
+  return label . '  [' . wincount . ']'
+endfunction
+
+" From the Vim wiki - displaying tab tooltips for multiple windows within tabs
+function! GuiTabToolTip()
+  let tip = ''
+  let bufnrlist = tabpagebuflist(v:lnum)
+  for bufnr in bufnrlist
+    " separate buffer entries
+    if tip!=''
+      let tip .= " \n "
+    endif
+    " Add name of buffer
+    let name=bufname(bufnr)
+    if name == ''
+      " give a name to no name documents
+      if getbufvar(bufnr,'&buftype')=='quickfix'
+        let name = '[Quickfix List]'
+      else
+        let name = '[No Name]'
+      endif
+    endif
+    let tip.=name
+    " add modified/modifiable flags
+    if getbufvar(bufnr, "&modified")
+      let tip .= ' [+]'
+    endif
+    if getbufvar(bufnr, "&modifiable")==0
+      let tip .= ' [-]'
+    endif
+  endfor
+  return tip
+endfunction
+
 " From Andrew Burgess/ Gary Bernhardt- open the URL under
 " cursor in browser
 function! OpenUrlUnderCursor()
@@ -332,7 +397,7 @@ xnoremap . :normal .<CR>
 nnoremap <leader>fl ^~
 
 " Insert checkmark using the Unicode codepoint
-nnoremap <leader>ch i<C-v>u2713<Esc>
+nnoremap <leader>ch i<C-v>u2713 <Esc>
 
 " Easy search and replace for the file or a selection
 " Original idea from Damian Conway
