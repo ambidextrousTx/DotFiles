@@ -694,6 +694,8 @@ augroup filetype_rust
 	autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
 augroup END
 
+augroup filetype javascript syntax=javascript
+
 " }}}
 " {{{ Status bar
 " Part from the official Vim page
