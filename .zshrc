@@ -10,12 +10,11 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="ambidextrous"
 #
 # Experimenting with random themes
-ZSH_THEME="aussiegeek"
-
 # ZSH_THEME="random"
+
+ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -23,7 +22,6 @@ ZSH_THEME="aussiegeek"
 
 # Ambidextrous - useful aliases
 alias ls='ls -a'
-alias lit='ssh ravi@lit09.csci.unt.edu'
 alias ec='/usr/local/bin/ctags'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
@@ -59,6 +57,9 @@ alias tn='tmux new -s'
 # Ambidextrous - Useful shell options
 # Do not overwrite a file through stdout redirect if file exists
 set -o noclobber
+
+# Ignore commands that start with a space. Ignore repeated duplicates
+HISTCONTROL=ignorespace:ignoredups
 
 # Ambidextrous - helpful functions
 # Change directory and list items
@@ -112,25 +113,20 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm osx pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant command-not-found history pylint python rails rake jsontools react-native redis-cli xcode docker rsync lein scala sbt aws)
+plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm osx pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant command-not-found history pylint python rails rake jsontools react-native redis-cli xcode docker rsync lein scala sbt aws zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 # Ambidextrous: putting Macports Python version at the beginning so that pyrg works
-export PATH=/Users/ambidextrous/Coding/Python/Anaconda2/bin:/Users/ambidextrous/Coding/Python/Anaconda3/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/go/bin
+export PATH=/Users/ambidextrous/Coding/Python/Anaconda2/bin:/Users/ambidextrous/Coding/Python/Anaconda3/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/go/bin
 
 # Ambidextrous: use MacVim for Vmail instead of the terminal Vim
 export PATH=/Applications:$PATH
 export VMAIL_VIM=mvim
 
 # Ambidextrous: updating path to include npm-installed binaries
-export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/usr/local/share/npm/lib/node_modules:$PATH
-export PATH=/usr/local/lib/node_modules:$PATH
-
-# Ambidextrous: Because ./ is annoying and inelegant
-export PATH=$PATH:.
+export PATH=/usr/local/share/npm/bin:/usr/local/share/npm/lib/node_modules:/usr/local/lib/node_modules:$PATH
 
 # Ambidextrous: Adding all the tools supplied with the Data Science
 # at the Command Line book
