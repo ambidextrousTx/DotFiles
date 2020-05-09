@@ -88,7 +88,10 @@ set clipboard+=unnamed
 " Other tools like syntastic will highlight when a line is >= 80 cols
 " Setting the color to be a dark gray
 set colorcolumn=80
+
+" From Damian Conway, highlight all characters after 80 columns
 highlight ColorColumn ctermbg=020202
+call matchadd('ColorColumn', '\%>80v', 100)
 
 " Steve Losh/ Drew Neil: tab and eol characters, and mapping to toggl
 " Colors work for badwolf and some other schemes (NonText and SpecialKey)
@@ -161,7 +164,7 @@ au VimResized * :wincmd =
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" Am I ever going to use Vim's traditional regexes?
+" Am I ever going to use Vim's traditional regexes? Very magic is the way to go, otherwise you'd be escaping every single little thing. Very magic mode makes the regexes Perl-compatible
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
@@ -169,6 +172,7 @@ vnoremap ? ?\v
 
 " Highlight the current line
 set cursorline
+set cursorcolumn
 
 " Show matching parentheses for a bit
 set showmatch
@@ -194,12 +198,17 @@ set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 
-" Clearing out the results of a search easily
+" Clearing out the results of a search (hlsearch) easily
 nnoremap <leader><space> :noh<CR>
 
 " When opening a file, do not fold blocks
 " Folding is managed by the filetypes (see augroups below)
 set foldlevelstart=99
+"
+" Make folds auto-open and auto-close when the cursor moves over them
+" from Damian Conway
+:set foldopen=all
+:set foldclose=all
 
 " Line numbers
 set number
@@ -478,7 +487,8 @@ nnoremap <leader><cr> :silent !myctags >/dev/null 2>&1 &<cr>:redraw!<cr>
 " }}}
 " My own matching and highlighting rules {{{
 " Make Vim jump between < and > upon pressing % (augment the default)
-set matchpairs+=<:>
+" Default is (), {}, and []. Add more separated by commas, but remember to " keep the += so as to append to existing pairs
+set matchpairs+=<:>,«:»
 
 nnoremap <leader>h :call HighlightTODOs()<CR>
 
@@ -584,6 +594,7 @@ iabbrev thigns things
 iabbrev waht what
 iabbrev tehn then
 iabbrev wnat want
+iabbrev omw on my way
 " Add more as and when needed
 "
 " Abbreviations specific to the command mode
@@ -726,6 +737,13 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline#extensions#tabline#enabled = 1
 " }}}
+"
+" From Damian Conway's Mastering Vim O'Reilly course
+" Navigating helpgrep searches easily
+nmap <silent> <RIGHT> :cnext<CR>
+nmap <silent> <RIGHT><RIGHT> :cnfile<CR><C-G>
+nmap <silent> <LEFT> :cprev<CR>
+nmap <silent> <LEFT><LEFT> :cpfile<CR><C-G>
 
 
 " --- not working yet / still creating ---
