@@ -243,7 +243,8 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Start relative number or normal number
+" Start relative number or normal number (also keep it on by default)
+set relativenumber
 nnoremap <leader>sr :call SetRelativeNumber()<CR>
 nnoremap <leader>sn :call SetNumber()<CR>
 
