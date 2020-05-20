@@ -420,6 +420,9 @@ nnoremap <leader>p :CtrlPMixed<CR>
 " A shortcut to TagbarToggle from Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 
+" A shortcut to NERDTreeToggle from NERDTree
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
 " Make it easier to make it easier to edit text
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
