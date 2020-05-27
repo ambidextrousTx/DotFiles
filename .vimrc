@@ -742,6 +742,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline#extensions#tabline#enabled = 1
 " }}}
 "
+"
 " From Damian Conway's Mastering Vim O'Reilly course
 " Navigating helpgrep searches easily
 nmap <silent> <RIGHT> :cnext<CR>
@@ -749,6 +750,25 @@ nmap <silent> <RIGHT><RIGHT> :cnfile<CR><C-G>
 nmap <silent> <LEFT> :cprev<CR>
 nmap <silent> <LEFT><LEFT> :cpfile<CR><C-G>
 
+" Handlers for Damian Conway's plugin dragvisuals in .vim/plugin
+runtime plugin/dragvisuals.vim
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
+" Remove any introduced trailing whitespace after moving...
+let g:DVB_TrimWS = 1
+
+" Handlers for Damian Conway's plugin betterdigraphs_utf8 in .vim/plugin
+inoremap <expr>  <C-K>   BDG_GetDigraph()
+
+" Handlers for Damian Conway's plugin comment-toggle in .vim/plugin
+" This is currently untested
+
+" Handlers for Damian Conway's plugin comment-toggle in .vim/plugin
+xmap <silent><expr>  ++  VMATH_YankAndAnalyse()
+nmap <silent>        ++  vip++
 
 " --- not working yet / still creating ---
 
