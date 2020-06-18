@@ -1,4 +1,3 @@
-" Introduction {{{
 " Ambidextrous
 " $MYVIMRC
 " Evolving over time
@@ -422,6 +421,8 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " A shortcut to NERDTreeToggle from NERDTree
 nnoremap <leader>nt :NERDTreeToggle<CR>
+" MacVim sometimes shows a ^G character, here is the workaround for that
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Make it easier to make it easier to edit text
 " Edit vimrc
