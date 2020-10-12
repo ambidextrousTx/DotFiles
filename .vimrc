@@ -25,7 +25,8 @@ filetype plugin indent on
 " highlighting very frequently
 syntax on
 if has("gui_running")
-	colorscheme maui
+	colorscheme gruvbox
+	set background=dark
 	" GUI font, labels on tabs
 	if has("mac")
 		set guifont=Source\ Code\ Pro:h13
@@ -44,7 +45,8 @@ if has("gui_running")
 	" In MacVim, disable some menu options that are unpleasing to the eye
 	set go-=T
 else
-	colorscheme default
+	colorscheme gruvbox
+	set background=dark
 endif
 set nocompatible	" No compatibility with legacy vi
 set ttyfast
