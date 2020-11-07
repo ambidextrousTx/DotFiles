@@ -29,9 +29,9 @@ if has("gui_running")
 	set background=dark
 	" GUI font, labels on tabs
 	if has("mac")
-		set guifont=Source\ Code\ Pro:h13
+		set guifont=FantasqueSansMono\ Nerd\ Font\:h18
 	else
-		set guifont=Source\ Code\ Pro\ 13
+		set guifont=FantasqueSansMono\ Nerd\ Font\:h18
 	endif
 	set showtabline=2
 	set guitablabel=%{GuiTabLabel()}
