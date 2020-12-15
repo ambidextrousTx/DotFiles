@@ -71,7 +71,7 @@ endif
 
 " Enable undo persistence between sessions
 set undodir=~/.vim/undo
-set undofile"
+set undofile
 
 " Leader key
 let mapleader = ","
@@ -231,7 +231,6 @@ set complete-=k complete+=k
 set nojoinspaces
 " }}}
 " Useful functions {{{
-
 " Via Drew Neil at Vimcasts.org
 " Ctrl Shift Q to see the highlight group for word
 " Help in creating Vim colorscheme files
