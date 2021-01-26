@@ -206,11 +206,6 @@ nnoremap <leader><space> :noh<CR>
 " Folding is managed by the filetypes (see augroups below)
 set foldlevelstart=99
 "
-" Make folds auto-open and auto-close when the cursor moves over them
-" from Damian Conway
-:set foldopen=all
-:set foldclose=all
-
 " Line numbers
 set number
 " Number of columns for the line numbers
