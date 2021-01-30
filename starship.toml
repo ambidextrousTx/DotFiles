@@ -25,3 +25,16 @@ threshold = -1
 symbol = "🐏 "
 style = "bold dimmed green"
 format = "$symbol [${ram}]($style) "
+
+[status]
+style = "bg:blue"
+symbol = "💣 "
+format = '[\[$symbol$status\]]($style) '
+disabled = false
+
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold dimmed cyan) "
+
+[aws]
+disabled = true
