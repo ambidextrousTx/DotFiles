@@ -179,6 +179,9 @@ set cursorcolumn
 set showmatch
 set matchtime=1
 
+" Speed up delay manifested in Vim-gitgutter
+set updatetime=100
+
 " History and undo levels
 " Bumping up to 9,999; this isn't 1990s anymore, can use extra memory
 set history=9999
