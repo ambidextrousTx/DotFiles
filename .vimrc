@@ -24,6 +24,14 @@ filetype plugin indent on
 " Keeping the syntax on stuff at the top because Vim was losing syntax
 " highlighting very frequently
 syntax on
+set spell
+set nocompatible	" No compatibility with legacy vi
+set ttyfast
+set autowrite		" Automatically write to file when the buffer changes
+set autoread		" Automatically read the changes when the file changes
+set encoding=utf-8  " UTF-8 all the things
+
+
 if has("gui_running")
 	colorscheme gruvbox
 	set background=dark
@@ -36,8 +44,6 @@ if has("gui_running")
 	set showtabline=2
 	set guitablabel=%{GuiTabLabel()}
 	set guitabtooltip=%{GuiTabToolTip()}
-	" Setting spelling only when the GUI is running
-	set spell
 	" Autmatically change dirs upon opening
 	" Only needed/ works for GUI
 	set autochdir
@@ -48,13 +54,6 @@ else
 	colorscheme gruvbox
 	set background=dark
 endif
-set nocompatible	" No compatibility with legacy vi
-set ttyfast
-set autowrite		" Automatically write to file when the buffer changes
-set autoread		" Automatically read the changes when the file changes
-
-" UTF-8 all the things
-set encoding=utf-8
 
 " Line-endings depend on the current system
 " Ambidextrous- altered from the previous (unix,mac,dos)
@@ -178,9 +177,6 @@ set cursorcolumn
 " Show matching parentheses for a bit
 set showmatch
 set matchtime=1
-
-" Speed up delay manifested in Vim-gitgutter
-set updatetime=100
 
 " History and undo levels
 " Bumping up to 9,999; this isn't 1990s anymore, can use extra memory
