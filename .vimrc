@@ -419,6 +419,9 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 " MacVim sometimes shows a ^G character, here is the workaround for that
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
+" https://www.wiserfirst.com/blog/vim-tip-snipmate-legacy-parser-warning/
+let g:snipMate = { 'snippet_version' : 1}
+
 " Make it easier to make it easier to edit text
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
