@@ -57,7 +57,6 @@ endif
 
 " Line-endings depend on the current system
 " Ambidextrous- altered from the previous (unix,mac,dos)
-" set fileformats=unix,mac,dos
 if has("mac")
 	set fileformat=mac
 else
@@ -120,13 +119,13 @@ endif
 " }}}
 " Basics, one liners {{{
 "
-" Interesting feature; keeping some context offset around when scrolling
+" Keep some context offset around when scrolling
 set scrolloff=5
 "
 " Never need 'Ex mode'
 nnoremap Q <NOP>
 "
-" Disabling paste - abbreviations do not work otherwise
+" Disable paste - abbreviations do not work otherwise
 set nopaste
 
 set showcmd " Show the number of selected lines, characters etc.
