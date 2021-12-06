@@ -24,9 +24,12 @@ filetype plugin indent on
 " Keeping the syntax on stuff at the top because Vim was losing syntax
 " highlighting very frequently
 syntax on
+set synmaxcol=128
 set spell
 set nocompatible	" No compatibility with legacy vi
 set ttyfast
+set ttyscroll=3
+set lazyredraw		" To avoid scrolling problems
 set autowrite		" Automatically write to file when the buffer changes
 set autoread		" Automatically read the changes when the file changes
 set encoding=utf-8  " UTF-8 all the things
