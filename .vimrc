@@ -24,7 +24,7 @@ filetype plugin indent on
 " Keeping the syntax on stuff at the top because Vim was losing syntax
 " highlighting very frequently
 syntax on
-set synmaxcol=128
+set synmaxcol=300
 set spell
 set nocompatible	" No compatibility with legacy vi
 set ttyfast
