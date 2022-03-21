@@ -3,20 +3,21 @@ echo ""
 echo -n "Today is "; date "+%m-%d-%Y %H:%M:%S"
 echo -n "System status: "; uptime
 
-# Customize to your needs...
 # Ambidextrous: Homebrew on Apple Silicon
 CPU=$(uname -p)
 if [[ "$CPU" == "arm" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
+    export BREW_BASE="/opt/homebrew"
     export EDITOR=/opt/homebrew/bin/vim
     alias oldbrew=/usr/local/bin/brew
 else
     export PATH="/usr/local/bin:$PATH"
+    export BREW_BASE="/usr/local"
     export EDITOR=/usr/local/bin/vim
 fi
 
-# Start with the path to Homebrew set above
-export PATH=$PATH:/Users/ambidextrous/Coding/Python/Anaconda3/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:
+# Anaconda first, the path to Homebrew set above next, then everything else
+export PATH=/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -43,29 +44,9 @@ alias egrep='egrep --color=always'
 alias hh='history | egrep -i'
 alias up='cd ..'
 
-# Ambidextrous: changed, Jun 24, 2013
-# For enabling interactive plotting
-# alias ipython='ipython --pylab'
-
 # Ambidextrous - grc - for colorizing terminal output
-# /usr/local/etc/grc.conf has the regexes and their colors defined
+# /opt/homebrew/etc/grc.conf has the regexes and their colors defined
 alias grc='grc -es --colour=on'
-
-# Ambidextrous - git aliases
-alias ga='git add'
-alias gs='git status'
-alias gd='git diff'
-alias gc='git commit'
-alias gl='git log'
-
-# Ambidextrous - tmux aliases
-alias ta='tmux attach'
-alias tl='tmux ls'
-alias tn='tmux new -s'
-
-# Ambidextrous - Scala REPL has colors starting from 2.11.4
-# Apparently the new Scala versions do this by default and this thing doesn't work anymore
-#alias scala='scala -Dscala.color'
 
 # Ambidextrous - Useful shell options
 # Do not overwrite a file through stdout redirect if file exists
@@ -130,13 +111,9 @@ plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git gi
 
 source $ZSH/oh-my-zsh.sh
 
-
 # Ambidextrous: use MacVim for Vmail instead of the terminal Vim
 export PATH=/Applications:$PATH
 export VMAIL_VIM=mvim
-
-# Ambidextrous: updating path to include npm-installed binaries
-export PATH=/usr/local/share/npm/bin:/usr/local/share/npm/lib/node_modules:/usr/local/lib/node_modules:$PATH
 
 # Ambidextrous: Adding all the tools supplied with the Data Science
 # at the Command Line book
@@ -145,11 +122,10 @@ export PATH=$PATH:/Users/ambidextrous/Coding/DataScienceCLI/data-science-at-the-
 # Ambidextrous: For third party Go libraries/ binaries
 export GOPATH=/Users/ambidextrous/Coding/GoLang/lib
 export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:${BREW_BASE}/opt/go/libexec/bin
 
 # Ambidextrous: Tapkee executables
 export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
-
 
 # Ambidextrous: Path to Factor
 export PATH=/Applications/factor:$PATH
@@ -174,3 +150,17 @@ export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
 # Ambidextrous: starting using Starship as the prompt Dec 2020
 eval "$(starship init zsh)"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/ambidextrous/Coding/Python/Anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/ambidextrous/Coding/Python/Anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/ambidextrous/Coding/Python/Anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
