@@ -3,6 +3,21 @@ echo ""
 echo -n "Today is "; date "+%m-%d-%Y %H:%M:%S"
 echo -n "System status: "; uptime
 
+# Customize to your needs...
+# Ambidextrous: Homebrew on Apple Silicon
+CPU=$(uname -p)
+if [[ "$CPU" == "arm" ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+    export EDITOR=/opt/homebrew/bin/vim
+    alias oldbrew=/usr/local/bin/brew
+else
+    export PATH="/usr/local/bin:$PATH"
+    export EDITOR=/usr/local/bin/vim
+fi
+
+# Start with the path to Homebrew set above
+export PATH=$PATH:/Users/ambidextrous/Coding/Python/Anaconda3/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -111,13 +126,10 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm osx pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant command-not-found history pylint python rails rake jsontools react-native redis-cli xcode docker rsync lein scala sbt aws zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant command-not-found history pylint python rails rake jsontools react-native redis-cli xcode docker rsync lein scala sbt aws zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-# Ambidextrous: putting Macports Python version at the beginning so that pyrg works
-export PATH=/Users/ambidextrous/Coding/Python/Anaconda3/bin:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/smlnj/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/go/bin
 
 # Ambidextrous: use MacVim for Vmail instead of the terminal Vim
 export PATH=/Applications:$PATH
@@ -138,8 +150,6 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # Ambidextrous: Tapkee executables
 export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
 
-# Ambidextrous: Homebrew puts stuff in /usr/local/sbin too
-export PATH="/usr/local/sbin:$PATH"
 
 # Ambidextrous: Path to Factor
 export PATH=/Applications/factor:$PATH
