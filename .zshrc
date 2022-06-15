@@ -164,3 +164,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+#
+# Ambidextrous: do not activate conda's base environment on startup, i.e.
+# do not show (base) in the prompt unless explicitly desired
+eval "conda config --set auto_activate_base false"
