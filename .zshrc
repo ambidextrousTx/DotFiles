@@ -148,7 +148,15 @@ export GREP_OPTIONS='--color=auto'
 export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
 
 # Ambidextrous: starting using Starship as the prompt Dec 2020
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+# Ambidextrous: starting using powerline-shell as the prompt June 2022
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
