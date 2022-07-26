@@ -22,6 +22,10 @@ export PATH=/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH:/opt/local/bin
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Adding this allows us to run `zprof` on the command line, which profiles all the
+# commands run in the current session and displays the times taken
+zmodload zsh/zprof
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -89,6 +93,13 @@ function teleport {
     cd $1
 }
 
+# https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
+# Measure the shell's load time
+function timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -107,7 +118,9 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant command-not-found history pylint python rails rake jsontools react-native redis-cli xcode docker rsync lein scala sbt aws zsh-syntax-highlighting zsh-autosuggestions)
+
+# Extremely slow plugins - aws and command-not-found - have been removed
+plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant history pylint python rails rake jsontools react-native redis-cli xcode docker rsync lein scala sbt zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
