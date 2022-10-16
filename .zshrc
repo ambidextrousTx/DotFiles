@@ -143,6 +143,9 @@ export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
 # Ambidextrous: Path to Factor
 export PATH=/Applications/factor:$PATH
 
+# Ambidextrous: Path to Rust
+export PATH=~/.cargo/bin:$PATH
+
 # Ambidextrous: Ruby specific
 export RI="--format ansi --width 70"
 
