@@ -166,12 +166,21 @@ export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
 # Ambidextrous: starting using Starship as the prompt Dec 2020
 # eval "$(starship init zsh)"
 # Ambidextrous: starting using powerline-shell as the prompt June 2022
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
 }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
+    install_powerline_precmd
 fi
 
 # >>> conda initialize >>>
