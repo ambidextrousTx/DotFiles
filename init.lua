@@ -99,8 +99,24 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+vim.o.encoding = 'utf-8'
+
+-- Automatically read the changes when the file changes
+vim.o.autoread = true
+--
+-- Automatically write the changes to the file when the focus changes
+vim.o.autowrite = true
+
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
+vim.o.incsearch = true
+
+-- Split to the bottom and right by default
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+-- Don't break words on line wrap
+vim.o.linebreak = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -117,6 +133,17 @@ vim.o.undofile = true
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+
+-- Show markers
+-- Show the text about to change
+vim.o.cpoptions = '$'
+
+-- Show tab, eol, and some other characters
+vim.o.list = true
+vim.cmd [[ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:· ]]
+
+-- Offset 5 rows top and bottom when scrolling
+vim.o.scrolloff = 5
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -245,9 +272,63 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>mt', require('material.functions').find_style, { desc = '[M]aterial [T]hemes' })
 
--- Quickly move lines up and down
+-- Quickly move lines up and down in normal mode
 vim.keymap.set('n', '-', 'ddp')
 vim.keymap.set('n', '_', 'ddkP')
+
+-- Quickly move multiple lines up and down in visual mode
+vim.keymap.set('v', '_', 'xkP`[V`]')
+vim.keymap.set('v', '-', 'xp`[V`]')
+
+-- Keep search matches in the middle of the window
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- Really not using ; and this saves the additional shift key press
+vim.keymap.set('n', ';', ':')
+
+-- Keep the cursor in place when joining lines. Do not use the z register
+-- for anything else; Tip from Steve Losh¬
+vim.keymap.set('n', 'J', 'mzJ`z')
+
+-- Special characters
+-- Insert the => used frequently in Ruby or elsewhere
+vim.keymap.set('i', '<c-l>', '=>')
+
+-- Insert checkmark using the Unicode codepoint¬
+vim.keymap.set('n', '<leader>ch', 'i<C-v>u2713 <Esc>')
+
+-- Insert space above and below
+vim.keymap.set('n', '<leader>m', 'O<ESC>jo<ESC>k')
+
+-- Toggle options
+-- Toggle between relative and absolute line numbering
+vim.keymap.set('n', '<leader>sr', function ()
+  vim.o.relativenumber = not vim.o.relativenumber
+end)
+
+-- Toggle spell check
+vim.keymap.set('n', '<leader>s', function()
+  vim.o.spell = not vim.o.spell
+end)
+
+-- Toggle listchars
+vim.keymap.set('n', '<leader>l', function()
+  vim.o.list = not vim.o.list
+end)
+
+-- Abbreviations
+vim.cmd [[ 
+  iabbrev teh the 
+  iabbrev adn and
+  iabbrev thign thing
+  iabbrev thigns things
+  iabbrev waht what
+  iabbrev tehn then
+  iabbrev wnat want
+  iabbrev omw on my way
+]]
+
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
