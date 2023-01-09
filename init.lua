@@ -51,6 +51,7 @@ require('packer').startup(function(use)
   -- Themes
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'ellisonleao/gruvbox.nvim' -- Neovim port of Gruvbox
+  use 'marko-cerovac/material.nvim' -- Several material themes
 
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
@@ -142,7 +143,8 @@ require('gruvbox').setup({
   dim_inactive = false,
   transparent_mode = false,
 })
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme material]]
+vim.g.material_style = "deep ocean"
 
 -- Set default GUI font
 vim.cmd [[set guifont="Source Code Pro:h18"]]
