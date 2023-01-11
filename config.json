@@ -1,0 +1,16 @@
+{
+  "segments": [
+    "virtual_env",
+    "username",
+    "hostname",
+    "ssh",
+    "cwd",
+    "git",
+    "jobs",
+    "newline"
+  ],
+  "cwd": {
+  },
+  "theme": "gruvbox",
+  "_comment": "Place in ~/.config/powerline-shell/config.json"
+}
