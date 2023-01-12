@@ -100,6 +100,15 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- See `:help vim.o`
 
 vim.o.encoding = 'utf-8'
+vim.opt.cursorline = true
+vim.opt.showcmd = true
+vim.opt.laststatus = 2
+
+-- Use spaces for tabs and whatnot
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.shiftround = true
+vim.opt.expandtab = true
 
 -- Automatically read the changes when the file changes
 vim.o.autoread = true
