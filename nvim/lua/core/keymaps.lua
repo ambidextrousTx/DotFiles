@@ -25,6 +25,9 @@ vim.keymap.set('v', '-', 'xp`[V`]')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
+-- Clear highlighted search matches
+vim.keymap.set('n', '<leader><space>', ':noh<CR>')
+
 -- Really not using ; and this saves the additional shift key press
 vim.keymap.set('n', ';', ':')
 
