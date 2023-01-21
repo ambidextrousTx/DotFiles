@@ -17,6 +17,10 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '-', 'ddp')
 vim.keymap.set('n', '_', 'ddkP')
 
+-- Quickly move and indent blocks of code
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 -- Quickly move multiple lines up and down in visual mode
 vim.keymap.set('v', '_', 'xkP`[V`]')
 vim.keymap.set('v', '-', 'xp`[V`]')
@@ -24,6 +28,15 @@ vim.keymap.set('v', '-', 'xp`[V`]')
 -- Keep search matches in the middle of the window
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- Keep half-page scolls in the middle of the window
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- Copy to the system clipboard
+vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', '"+Y')
 
 -- Clear highlighted search matches
 vim.keymap.set('n', '<leader><space>', ':noh<CR>')

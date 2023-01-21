@@ -48,6 +48,9 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
+-- 80 colums
+vim.o.colorcolumn = '80'
+
 -- Enable break indent
 vim.o.breakindent = true
 
