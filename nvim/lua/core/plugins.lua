@@ -70,6 +70,9 @@ require('packer').startup(function(use)
   -- Harpoon to quickly switch between chosen files
   use { 'theprimeagen/harpoon' }
 
+  -- Undotree to graphically visualize changes
+  use { 'mbbill/undotree' }
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
