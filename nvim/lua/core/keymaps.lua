@@ -74,3 +74,7 @@ vim.keymap.set('n', '<leader>l', function()
   vim.o.list = not vim.o.list
 end)
 
+-- Open the URL under cursor
+-- https://www.reddit.com/r/neovim/comments/ro6oye/open_link_from_neovim/
+vim.keymap.set('n', '<leader>o', [[:silent execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]])
+
