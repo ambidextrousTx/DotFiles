@@ -73,6 +73,13 @@ require('packer').startup(function(use)
   -- Undotree to graphically visualize changes
   use { 'mbbill/undotree' }
 
+  -- Autopairs to automatically close [], {}, (), "", ''
+  use { 'windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup {}
+      end
+  }
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
