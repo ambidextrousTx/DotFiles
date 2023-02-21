@@ -58,6 +58,7 @@ require('packer').startup(function(use)
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'ellisonleao/gruvbox.nvim' -- Neovim port of Gruvbox
   use 'marko-cerovac/material.nvim' -- Several material themes
+  use 'RRethy/nvim-base16' -- Several base-16 themes, including Atelier Dune
 
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
