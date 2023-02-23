@@ -65,7 +65,9 @@ vim.keymap.set('n', '<leader>sr', function ()
 end)
 
 -- Toggle spell check
-vim.keymap.set('n', '<leader>s', function()
+-- Set to S because <leader>s should show all Telescope search
+-- bindings via Which Key
+vim.keymap.set('n', '<leader>S', function()
   vim.o.spell = not vim.o.spell
 end)
 
