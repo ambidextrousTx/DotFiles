@@ -35,7 +35,8 @@ require('packer').startup(function(use)
   use "rafamadriz/friendly-snippets"
 
   use {
-    "folke/which-key.nvim",
+    -- "folke/which-key.nvim",
+    "max397574/which-key.nvim",
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
