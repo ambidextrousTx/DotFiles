@@ -58,6 +58,7 @@ set -o noclobber
 
 # Ignore commands that start with a space. Ignore repeated duplicates
 HISTCONTROL=ignorespace:ignoredups
+HISTTIMEFORMAT="%m/%d/%y %T"
 
 # Ambidextrous - helpful functions
 # Change directory and list items
