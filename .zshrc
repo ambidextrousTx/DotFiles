@@ -173,18 +173,11 @@ if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
 fi
 
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/ambidextrous/Coding/Python/Anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/ambidextrous/Coding/Python/Anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/ambidextrous/Coding/Python/Anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# Removed block added by Conda/Anaconda because it slows down the
+# shell startup by 3-10 seconds
+# May be added back if needed
+# See https://github.com/ContinuumIO/anaconda-issues/issues/10173
+# See https://github.com/conda/conda/issues/7855
 # <<< conda initialize <<<
 #
 # Ambidextrous: do not activate conda's base environment on startup, i.e.
