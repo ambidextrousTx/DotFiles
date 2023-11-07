@@ -138,9 +138,6 @@ export GOPATH=/Users/ambidextrous/Coding/GoLang/lib
 export PATH=$PATH:/Users/ambidextrous/Coding/GoLang/lib/bin
 export PATH=$PATH:${BREW_BASE}/opt/go/libexec/bin
 
-# Ambidextrous: Tapkee executables
-export PATH=$PATH:/Users/ambidextrous/Coding/Tapkee/tapkee-master/bin
-
 # Ambidextrous: Path to Factor
 export PATH=/Applications/factor:$PATH
 
@@ -152,20 +149,11 @@ export RI="--format ansi --width 70"
 
 # Ambidextrous: OS X specific system utilities
 alias ssid='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep SSID'
-alias tunnel2cadmius="ssh -L 5901:127.0.0.1:5901 -N -f -l ravisinha Cadmius.local"
-
-# Ambidextrous: for the new Theano through a different channel
-export DYLD_FALLBACK_LIBRARY_PATH=/Users/ambidextrous/Coding/Python/Anaconda3/lib:$DYLD_FALLBACK_LIBRARY_PATH
-
-# Ambidextrous: shortcut to code-maat from Adam Tornhill
-alias maat='java -jar target/code-maat-0.9.2-SNAPSHOT-standalone.jar'
 
 # Ambidextrous: added from the Pro Vim book courtesy of Mark McDonnell
 export GREP_OPTIONS='--color=auto'
 export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
 
-# Ambidextrous: starting using Starship as the prompt Dec 2020
-# eval "$(starship init zsh)"
 # Ambidextrous: starting using powerline-shell as the prompt June 2022
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
