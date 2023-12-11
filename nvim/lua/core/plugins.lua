@@ -76,6 +76,7 @@ require('packer').startup(function(use)
   -- Themes
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'ellisonleao/gruvbox.nvim' -- Neovim port of Gruvbox
+  use { 'catppuccin/nvim', as = 'catppuccin' } -- Catppuccin colors
   use 'marko-cerovac/material.nvim' -- Several material themes
   use 'RRethy/nvim-base16' -- Several base-16 themes, including Atelier Dune
 
@@ -95,6 +96,9 @@ require('packer').startup(function(use)
 
   -- Undotree to graphically visualize changes
   use { 'mbbill/undotree' }
+
+  -- PlantUML syntax highlighting
+  use 'javiorfo/nvim-nyctophilia'
 
   -- Autopairs to automatically close [], {}, (), "", ''
   use { 'windwp/nvim-autopairs',
