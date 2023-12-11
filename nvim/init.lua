@@ -4,7 +4,6 @@ require('core.plugins')
 require('core.plugin_config.init')
 require('core.lsp')
 
-
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
@@ -136,12 +135,6 @@ vim.cmd [[
   iabbrev wnat want
   iabbrev omw on my way
 ]]
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
