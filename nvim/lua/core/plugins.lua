@@ -76,6 +76,8 @@ require('packer').startup(function(use)
   -- Themes
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'ellisonleao/gruvbox.nvim' -- Neovim port of Gruvbox
+  use "EdenEast/nightfox.nvim" -- The Nightbox set of themes
+  use "folke/tokyonight.nvim" -- The tokyonight set of themes
   use { 'catppuccin/nvim', as = 'catppuccin' } -- Catppuccin colors
   use 'marko-cerovac/material.nvim' -- Several material themes
   use 'RRethy/nvim-base16' -- Several base-16 themes, including Atelier Dune
