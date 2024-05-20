@@ -7,11 +7,13 @@ echo -n "System status: "; uptime
 CPU=$(uname -p)
 if [[ "$CPU" == "arm" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/sbin:$PATH"
     export BREW_BASE="/opt/homebrew"
     export EDITOR=/opt/homebrew/bin/vim
     alias oldbrew=/usr/local/bin/brew
 else
     export PATH="/usr/local/bin:$PATH"
+    export PATH="/usr/local/sbin:$PATH"
     export BREW_BASE="/usr/local"
     export EDITOR=/usr/local/bin/vim
 fi
@@ -182,4 +184,4 @@ fi
 #
 # Ambidextrous: do not activate conda's base environment on startup, i.e.
 # do not show (base) in the prompt unless explicitly desired
-eval "conda config --set auto_activate_base false"
+# eval "conda config --set auto_activate_base false"
