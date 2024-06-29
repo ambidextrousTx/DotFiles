@@ -109,6 +109,8 @@ require('packer').startup(function(use)
       end
   }
 
+  use { 'nvim-neotest/nvim-nio' }
+
   -- DAP for debugging Python
   use { 'rcarriga/nvim-dap-ui',
     dependencies = 'mfussenegger/nvim-dap',
