@@ -54,6 +54,9 @@ alias up='cd ..'
 # /opt/homebrew/etc/grc.conf has the regexes and their colors defined
 alias grc='grc -es --colour=on'
 
+# Ambidextrous - Kubernetes-specific
+alias k='kubectl'
+
 # Ambidextrous - Useful shell options
 # Do not overwrite a file through stdout redirect if file exists
 set -o noclobber
@@ -123,7 +126,7 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 # Extremely slow plugins - aws and command-not-found - have been removed
-plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant history pylint python rake jsontools react-native redis-cli xcode docker rsync lein scala sbt zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(kubectl ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant history pylint python rake jsontools react-native redis-cli xcode docker rsync lein scala sbt zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
