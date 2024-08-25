@@ -9,14 +9,17 @@ if [[ "$CPU" == "arm" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
     export PATH="/opt/homebrew/sbin:$PATH"
     export BREW_BASE="/opt/homebrew"
-    export EDITOR=/opt/homebrew/bin/vim
     alias oldbrew=/usr/local/bin/brew
 else
     export PATH="/usr/local/bin:$PATH"
     export PATH="/usr/local/sbin:$PATH"
     export BREW_BASE="/usr/local"
-    export EDITOR=/usr/local/bin/vim
 fi
+
+# Superior editing experience
+set -o vi
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Anaconda first, the path to Homebrew set above next, then everything else
 export PATH=/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:
@@ -63,7 +66,13 @@ set -o noclobber
 
 # Ignore commands that start with a space. Ignore repeated duplicates
 HISTCONTROL=ignorespace:ignoredups
+
+# Other history settings
 HISTTIMEFORMAT="%m/%d/%y %T"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt HIST_IGNORE_DUPS     # Don't save duplicate lines
+setopt SHARE_HISTORY        # Share history between sessions
 
 # Ambidextrous - helpful functions
 # Change directory and list items
@@ -97,6 +106,23 @@ function niceman {
 function teleport {
     mkdir -p $1
     cd $1
+}
+
+# From Mischa van den Burg
+# List path members for easy reading
+# Useful for discovering duplication
+#
+# zsh-specific glob setting
+setopt extended_glob null_glob
+
+# zsh provides contents of PATH as an array called path
+# Remove duplicate entries and non-existent directories
+typeset -U path
+path=($^path(N-/))
+export PATH
+
+function getpath {
+    echo -e ${PATH//:/\\n}
 }
 
 # https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
