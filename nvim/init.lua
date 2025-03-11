@@ -115,7 +115,6 @@ require('gitsigns').setup {
   },
 }
 
-vim.keymap.set('n', '<leader>mt', require('material.functions').find_style, { desc = '[M]aterial [T]hemes' })
 
 -- Abbreviations
 vim.cmd [[ 

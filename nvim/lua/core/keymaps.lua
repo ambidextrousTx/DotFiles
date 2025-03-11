@@ -86,3 +86,5 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
+-- Use a fancy keyboard shortcut to cycle through Materials theme
+vim.keymap.set('n', '<leader>mt', require('material.functions').find_style, { desc = '[M]aterial [T]hemes' })
