@@ -24,7 +24,7 @@ export VISUAL=nvim
 # Anaconda first, the path to Homebrew set above next, then everything else
 export PATH=/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH:/opt/local/bin:/opt/local/sbin:Users/ambidextrous/Coding/Scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:
 
-# Path to your oh-my-zsh configuration.
+# Path to the oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 # Adding this allows us to run `zprof` on the command line, which profiles all the
@@ -41,10 +41,6 @@ zmodload zsh/zprof
 
 ZSH_THEME="agnoster"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Ambidextrous - useful aliases
 alias ls='ls -a'
 alias ec='/usr/local/bin/ctags'
@@ -53,14 +49,11 @@ alias egrep='egrep --color=always'
 alias hh='history | egrep -i'
 alias up='cd ..'
 
-# Ambidextrous - grc - for colorizing terminal output
+# Grc - for colorizing terminal output
 # /opt/homebrew/etc/grc.conf has the regexes and their colors defined
 alias grc='grc -es --colour=on'
 
-# Ambidextrous - Kubernetes-specific
-alias k='kubectl'
-
-# Ambidextrous - Useful shell options
+# Useful shell options
 # Do not overwrite a file through stdout redirect if file exists
 set -o noclobber
 
@@ -74,7 +67,7 @@ SAVEHIST=100000
 setopt HIST_IGNORE_DUPS     # Don't save duplicate lines
 setopt SHARE_HISTORY        # Share history between sessions
 
-# Ambidextrous - helpful functions
+# Helpful functions
 # Change directory and list items
 function cl {
     ls='ls -a'
@@ -96,7 +89,7 @@ function isthere {
     eval $cmd
 }
 
-# Ambidextrous - convert a man page into PostScript and view it in Preview
+# Convert a man page into PostScript and view it in Preview
 # Works only on Mac OS X
 function niceman {
     cmd='man -t $1 | open -fa Preview'
@@ -152,7 +145,7 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 # Extremely slow plugins - aws and command-not-found - have been removed
-plugins=(kubectl ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant history pylint python rake jsontools react-native redis-cli xcode docker rsync lein scala sbt zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(ant man spring sublime sudo mvn battery bower nmap brew gem node git git-extras npm macos pep8 github perl gnu-utils go golang tmux postgres gradle colored-man-pages grails colorize grunt gulp vagrant history pylint python rake jsontools react-native redis-cli xcode docker rsync lein scala sbt zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -204,13 +197,24 @@ if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
 fi
 
 # >>> conda initialize >>>
-# Removed block added by Conda/Anaconda because it slows down the
-# shell startup by 3-10 seconds
-# May be added back if needed
-# See https://github.com/ContinuumIO/anaconda-issues/issues/10173
-# See https://github.com/conda/conda/issues/7855
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/ambidextrous/Coding/Python/Anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/ambidextrous/Coding/Python/Anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/ambidextrous/Coding/Python/Anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/ambidextrous/Coding/Python/Anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 #
 # Ambidextrous: do not activate conda's base environment on startup, i.e.
 # do not show (base) in the prompt unless explicitly desired
 # eval "conda config --set auto_activate_base false"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
