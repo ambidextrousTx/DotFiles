@@ -71,6 +71,7 @@ local plugins = {
 
   'nvim-tree/nvim-tree.lua', -- Directory structure
   'nvim-tree/nvim-web-devicons', -- Lovely icons
+  'echasnovski/mini.icons', -- More icons for Lazy
 
   -- Git related plugins
   'tpope/vim-fugitive',
