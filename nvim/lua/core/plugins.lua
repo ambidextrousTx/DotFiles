@@ -48,6 +48,8 @@ local plugins = {
     },
   },
 
+  'saghen/blink.cmp',
+
   'rafamadriz/friendly-snippets',
 
   {
