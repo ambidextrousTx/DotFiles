@@ -50,6 +50,15 @@ local plugins = {
 
   'saghen/blink.cmp',
 
+  -- Rendering Markdown
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons', 'nvim-tree/nvim-web-devicons' }, -- if you use standalone mini plugins
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
+
   'rafamadriz/friendly-snippets',
 
   {
