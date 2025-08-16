@@ -48,7 +48,10 @@ local plugins = {
     },
   },
 
+  {
   'saghen/blink.cmp',
+  version = '1.*'
+  },
 
   -- Rendering Markdown
   {
