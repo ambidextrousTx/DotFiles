@@ -82,27 +82,28 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
+    vim.lsp.config(server_name, {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
-    }
+    })
+    vim.lsp.enable(server_name)
   end
 }
 
 -- Turn on lsp status information
 require('fidget').setup()
 
-local lspconfig = require('lspconfig')
-
-lspconfig.rust_analyzer.setup {
+vim.lsp.config('rust_analyzer', {
   capabilities = capabilities,
   cmd = {
     'rustup', 'run', 'stable', 'rust-analyzer'
   }
-}
+})
+vim.lsp.enable('rust_analyzer')
 
-lspconfig.lua_ls.setup {
+vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities
-}
+})
+vim.lsp.enable('lua_ls')
