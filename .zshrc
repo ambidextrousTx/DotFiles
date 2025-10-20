@@ -218,3 +218,13 @@ unset __conda_setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Ambidextrous: Need Ruby 3.1+ for Cocoapods, default Darwin Ruby is Ruby 2
+# Homebrew Ruby needs manual path
+export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"
+# Have compilers and package configs find Homebrew Ruby
+export LDFLAGS="-L/opt/homebrew/opt/ruby@3.3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby@3.3/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby@3.3/lib/pkgconfig"
+# Homebrew Ruby's gems are the way to go
+export PATH="/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
