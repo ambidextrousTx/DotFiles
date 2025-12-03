@@ -186,24 +186,6 @@ alias ssid='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curr
 export GREP_OPTIONS='--color=auto'
 export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
 
-# Ambidextrous: starting using powerline-shell as the prompt June 2022
-#function powerline_precmd() {
-#    PS1="$(powerline-shell --shell zsh $?)"
-#}
-#
-#function install_powerline_precmd() {
-#  for s in "${precmd_functions[@]}"; do
-#    if [ "$s" = "powerline_precmd" ]; then
-#      return
-#    fi
-#  done
-#  precmd_functions+=(powerline_precmd)
-#}
-#
-#if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
-#    install_powerline_precmd
-#fi
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/ambidextrous/Coding/Python/Anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -223,9 +205,13 @@ unset __conda_setup
 # do not show (base) in the prompt unless explicitly desired
 # eval "conda config --set auto_activate_base false"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+    unset -f nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    nvm "$@"
+}
 
 # Ambidextrous: Need Ruby 3.1+ for Cocoapods, default Darwin Ruby is Ruby 2
 # Homebrew Ruby needs manual path
