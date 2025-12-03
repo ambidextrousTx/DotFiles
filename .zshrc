@@ -1,7 +1,15 @@
-echo "Welcome to Olympus, Ambidextrous"
-echo ""
-echo -n "Today is "; date "+%m-%d-%Y %H:%M:%S"
-echo -n "System status: "; uptime
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Ambidextrous: Powerlevel10k recommends against console output when using instant prompt
+#echo "Welcome to Olympus, Ambidextrous"
+#echo ""
+#echo -n "Today is "; date "+%m-%d-%Y %H:%M:%S"
+#echo -n "System status: "; uptime
 
 # Ambidextrous: Homebrew on Apple Silicon
 CPU=$(uname -p)
@@ -39,7 +47,7 @@ zmodload zsh/zprof
 # Experimenting with random themes
 # ZSH_THEME="random"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Ambidextrous - useful aliases
 alias ls='ls -a'
@@ -179,22 +187,22 @@ export GREP_OPTIONS='--color=auto'
 export MANPAGER='less -X' # Don't clear the screen upon quitting a man page
 
 # Ambidextrous: starting using powerline-shell as the prompt June 2022
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
-    install_powerline_precmd
-fi
+#function powerline_precmd() {
+#    PS1="$(powerline-shell --shell zsh $?)"
+#}
+#
+#function install_powerline_precmd() {
+#  for s in "${precmd_functions[@]}"; do
+#    if [ "$s" = "powerline_precmd" ]; then
+#      return
+#    fi
+#  done
+#  precmd_functions+=(powerline_precmd)
+#}
+#
+#if [ "$TERM" != "linux" -a -x "$(command -v powerline-shell)" ]; then
+#    install_powerline_precmd
+#fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -228,3 +236,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby@3.3/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby@3.3/lib/pkgconfig"
 # Homebrew Ruby's gems are the way to go
 export PATH="/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
+
+# For uv-installed binaries
+export PATH="/Users/ambidextrous/.local/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
