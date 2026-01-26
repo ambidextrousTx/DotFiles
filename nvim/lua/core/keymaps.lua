@@ -25,6 +25,10 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', '_', 'xkP`[V`]')
 vim.keymap.set('v', '-', 'xp`[V`]')
 
+-- + and - to do increase and decrease numbers
+vim.keymap.set('n', '+', '<C-a>')
+vim.keymap.set('n', '-', '<C-x>')
+
 -- Keep search matches in the middle of the window
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
