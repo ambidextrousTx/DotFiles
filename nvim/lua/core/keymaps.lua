@@ -27,7 +27,7 @@ vim.keymap.set('v', '-', 'xp`[V`]')
 
 -- + and - to do increase and decrease numbers
 vim.keymap.set('n', '+', '<C-a>')
-vim.keymap.set('n', '-', '<C-x>')
+-- vim.keymap.set('n', '-', '<C-x>') (stick to C-x, conflict swith ddp above)
 
 -- Keep search matches in the middle of the window
 vim.keymap.set('n', 'n', 'nzzzv')
