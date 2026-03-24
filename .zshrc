@@ -228,3 +228,6 @@ export PATH="/Users/ambidextrous/.local/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# For fzf: set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
