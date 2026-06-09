@@ -24,12 +24,9 @@ filetype plugin indent on
 " Keeping the syntax on stuff at the top because Vim was losing syntax
 " highlighting very frequently
 syntax on
-set synmaxcol=300
 set spell
 set nocompatible	" No compatibility with legacy vi
 set ttyfast
-set ttyscroll=3
-set lazyredraw		" To avoid scrolling problems
 set autowrite		" Automatically write to file when the buffer changes
 set autoread		" Automatically read the changes when the file changes
 set encoding=utf-8  " UTF-8 all the things
@@ -402,8 +399,9 @@ xnoremap . :normal .<CR>
 " (easier to type, though the same number of keystrokes)
 nnoremap <leader>fl ^~
 
-" Insert checkmark using the Unicode codepoint
+" Insert checkmark and xmark using the Unicode codepoint
 nnoremap <leader>ch i<C-v>u2713 <Esc>
+nnoremap <leader>cr i<C-v>u2715 <Esc>
 
 " Easy search and replace for the file or a selection
 " Original idea from Damian Conway
