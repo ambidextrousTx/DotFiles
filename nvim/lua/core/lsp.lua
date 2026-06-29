@@ -61,6 +61,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+
 }
 
 -- Setup neovim lua configuration
@@ -107,3 +108,31 @@ vim.lsp.config('lua_ls', {
   capabilities = capabilities
 })
 vim.lsp.enable('lua_ls')
+
+vim.lsp.config('sourcekit', {
+    cmd = { 'sourcekit-lsp' },
+    filetypes = { 'swift' },
+    root_markers = {
+      '.git',
+      'compile_commands.json',
+      '.sourcekit-lsp',
+      'Package.swift',
+    },
+    get_language_id = function(_, ftype)
+      return ftype
+    end,
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+      textDocument = {
+        diagnostic = {
+          dynamicRegistration = true,
+          relatedDocumentSupport = true,
+        },
+      },
+    },
+})
+vim.lsp.enable('sourcekit')
