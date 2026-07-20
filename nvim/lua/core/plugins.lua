@@ -48,7 +48,6 @@ local plugins = {
     },
   },
 
-
   {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
@@ -109,7 +108,9 @@ local plugins = {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons', 'nvim-tree/nvim-web-devicons' }, -- if you use standalone mini plugins
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      render_modes = { 'n', 'c', 't' }
+    },
   },
 
   'rafamadriz/friendly-snippets',
